@@ -1,0 +1,25 @@
+export const shelves = [
+  {
+    genre: "Фантастика",
+    books: [
+      { title: "Дюна" },
+      { title: "1984" },
+      { title: "Марсіанин" },
+    ],
+  },
+  {
+    genre: "Класика",
+    books: [
+      { title: "Шекспір" },
+      { title: "Кобзар" },
+      { title: "Толстой" },
+    ],
+  },
+  {
+    genre: "Поезія",
+    books: [
+      { title: "Ліна К." },
+      { title: "Байрон" },
+    ],
+  },
+];
