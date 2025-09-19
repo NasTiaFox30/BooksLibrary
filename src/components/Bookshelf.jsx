@@ -3,25 +3,6 @@ import Shelf from './Shelf';
 export default function Bookshelf({ shelves, books, onBookClick }) {
   console.log('Bookshelf props:', { shelves, books });
   
-  if (!shelves || shelves.length === 0) {
-    return (
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center text-amber-900 text-lg py-12">
-          Немає полиць для відображення
-        </div>
-      </div>
-    );
-  }
-  if (!books || books.length === 0) {
-    return (
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center text-amber-900 text-lg py-12">
-          Немає книг для відображення
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="max-w-6xl mx-auto px-4">
       {/* Top */}
