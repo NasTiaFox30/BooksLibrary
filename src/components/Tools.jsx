@@ -7,6 +7,23 @@ export function GenerateBooks(setBooks, countOfBooks) {
   const generatedBooks = [];
   
   shelves.forEach((shelf, shelfIndex) => {
+    // Обираємо 15 випадкових книг з цієї полиці (або всі, якщо їх менше)
+    const availableBooks = [...shelf.books];
+    const selectedBooks = [];
+    //copy of books
+    const tempBooks = [...availableBooks];
+    
+    // Виберемо випадкові книги (не більше ніж booksPerShelf)
+    const booksToSelect = Math.min(booksPerShelf, availableBooks.length);
+    
+    for (let i = 0; i < booksToSelect; i++) {
+      if (tempBooks.length === 0) break;
+      
+      const randomIndex = Math.floor(Math.random() * tempBooks.length);
+      selectedBooks.push(tempBooks[randomIndex]);
+      tempBooks.splice(randomIndex, 1);
+    }
+    
     // Створюємо масив вільних місць для цієї полиці
     const freeSlots = Array.from({ length: booksPerShelf }, (_, i) => i);
     
