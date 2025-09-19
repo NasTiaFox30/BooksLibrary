@@ -27,8 +27,8 @@ export function GenerateBooks(setBooks, countOfBooks) {
     // Створюємо масив вільних місць для цієї полиці
     const freeSlots = Array.from({ length: booksPerShelf }, (_, i) => i);
     
-    // Для кожної книги на полиці
-    shelf.books.forEach((book, bookIndex) => {
+    // Для кожної обраної книги
+    selectedBooks.forEach((book, bookIndex) => {
       // Вибираємо випадкове вільне місце
       const randomSlotIndex = Math.floor(Math.random() * freeSlots.length);
       const slot = freeSlots[randomSlotIndex];
@@ -48,7 +48,7 @@ export function GenerateBooks(setBooks, countOfBooks) {
       if (positionType === 2) rotation = -5; // Нахил вліво
       
       generatedBooks.push({
-        id: `${shelfIndex}-${bookIndex}`,
+        id: `${shelfIndex}-${bookIndex}-${slot}`,
         title: book.title,
         genre: shelf.genre,
         shelf: shelfIndex,
