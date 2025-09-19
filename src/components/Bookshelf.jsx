@@ -4,10 +4,10 @@ import { shelves } from '../data/shelves';
 export default function Bookshelf({ books }) {
   return (
     <div className="max-w-6xl mx-auto px-4">
+      {/* Верх шафи */}
+      <div className="h-10 bg-amber-900 rounded-t-lg"></div>
       {/* Контейнер шафи */}
       <div className="bg-amber-800 rounded-lg shadow-2xl p-6 md:p-8 relative">
-        {/* Верх шафи */}
-        <div className="h-4 bg-amber-900 rounded-t-lg mb-2"></div>
         
         {/* Полиці з книгами */}
         {shelves.map((shelf, shelfIndex) => (
