@@ -1,6 +1,8 @@
 import Header from "./components/Header"
 import Footer from "./components/Footer";
 import HomeScreen from "./pages/HomeScreen";
+import AddNewBookForm from "./services/AddNewBookForm";
+import ParallaxDecorations from "./components/ParallaxDecorations";
 
 export default function App() {
 
