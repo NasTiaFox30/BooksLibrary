@@ -12,6 +12,7 @@ export default function App() {
   const [clickCount, setClickCount] = useState(0);
   const [lastClickTime, setLastClickTime] = useState(0);
   const [titleClicked, setTitleClicked] = useState(false);
+  const [isLightOn, setIsLightOn] = useState(false); 
 
   const handleGoHome = () => {
     setCurrentScreen('home');
