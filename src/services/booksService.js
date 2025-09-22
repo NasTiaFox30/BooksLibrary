@@ -26,9 +26,17 @@ export const getBooks = async () => {
   }
 };
 
-// Get uniq genres
+// Get all genres
 export const getGenres = async () => {
-  const books = await getBooks();
-  const genres = [...new Set(books.map(book => book.genre))];
-  return genres;
+  try {
+    const querySnapshot = await getDocs(collection(db, "genres"));
+    const genres = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    return genres;
+  } catch (error) {
+    console.error("Помилка завантаження жанрів:", error);
+    return [];
+  }
 };
