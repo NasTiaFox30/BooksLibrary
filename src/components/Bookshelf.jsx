@@ -7,7 +7,7 @@ export default function Bookshelf({ shelves, books, onBookClick }) {
     <div className="max-w-6xl mx-auto px-4">
       {/* Top texture */}
       <div 
-        className="h-40 rounded-t-lg"
+        className="h-40 rounded-t-lg relative"
         style={{
           backgroundImage: 'url(/textures/top-bookshelf-texture.png)',
           backgroundSize: 'cover',
