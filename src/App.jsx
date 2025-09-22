@@ -8,13 +8,14 @@ export default function App() {
 
   return (
     <div
-    style={{
-      backgroundImage: 'url(/textures/bg.png)',
-      backgroundSize: 'cover',
-      backgroundSize: '100%',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center'
-    }}>
+      style={{
+        backgroundImage: 'url(/textures/bg.png)',
+        backgroundSize: 'cover',
+        backgroundSize: '100%',
+        backgroundRepeat: 'repeat',
+        backgroundPosition: 'center'
+      }}>
+      <ParallaxDecorations/>
       <Header/>
 
       <HomeScreen />
