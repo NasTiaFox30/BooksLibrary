@@ -15,19 +15,19 @@ export default function BookPreview({ book, isOpen, onClose, onOpenBook }) {
 
   const loadBookImage = async () => {
     try {
-        setLoading(true);
-        if (!book.imagePath) {
+      setLoading(true);
+      if (!book.imagePath) {
         throw new Error('Шлях до зображення не вказаний');
-        }
-        
-        const url = await getDownloadURL(ref(storage, book.imagePath));
-        setImageUrl(url);
+      }
+      
+      const url = await getDownloadURL(ref(storage, book.imagePath));
+      setImageUrl(url);
     } catch (error) {
-        console.error('Помилка завантаження зображення:', error);
+      console.error('Помилка завантаження зображення:', error);
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
-    };
+  };
 
   const handleOpenBook = () => {
     onOpenBook(book);
