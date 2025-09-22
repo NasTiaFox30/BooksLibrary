@@ -7,35 +7,42 @@ export default function Bookshelf({ shelves, books, onBookClick }) {
     <div className="max-w-6xl mx-auto px-4">
       {/* Top texture */}
       <div 
-        className="h-65 rounded-t-lg"
+        className="h-40 rounded-t-lg"
         style={{
           backgroundImage: 'url(/textures/top-bookshelf-texture.png)',
           backgroundSize: 'cover',
           backgroundSize: '100%',
           backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center',
         }}
       ></div>
+      <div className='h-8 rounded-l border-2 border-b-0 mx-10'
+      style={{
+          backgroundColor: '#b2bfc5',
+        }}></div>
       
       {/* Container */}
       <div 
-        className="mx-10 p-6 md:p-8 relative border-2"
+        className="mx-10 px-6 md:px-8 relative border-2 border-b-0"
         style={{
           backgroundColor: '#b2bfc5',
           backgroundSize: '100%',
           backgroundRepeat: 'repeat',
         }}
       >
-        {/* Shelves */}
-        {shelves.map((shelf, shelfIndex) => (
-          <Shelf 
-            key={shelfIndex} 
-            shelf={shelf} 
-            shelfIndex={shelfIndex} 
-            books={books} 
-            onBookClick={onBookClick}
-          />
-        ))}
+        <div className='border-2 border-b-0 '>
+          {/* Shelves */}
+          {shelves.map((shelf, shelfIndex) => (
+            <Shelf 
+              key={shelfIndex} 
+              shelf={shelf} 
+              shelfIndex={shelfIndex} 
+              books={books} 
+              onBookClick={onBookClick}
+            />
+          ))}
+        </div>
+        
       </div>
 
       {/* Bottom texture */}
