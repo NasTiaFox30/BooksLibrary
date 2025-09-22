@@ -43,6 +43,11 @@ export default function HomeScreen() {
     setSelectedBook(null);
   };
 
+  const handleOpenBook = (book) => {
+    setIsBookPreviewOpen(false);
+    onOpenBook(book);
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
