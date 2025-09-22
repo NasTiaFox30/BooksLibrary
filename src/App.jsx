@@ -13,7 +13,6 @@ export default function App() {
       style={{
         backgroundImage: 'url(/textures/bg.png)',
         backgroundSize: 'cover',
-        backgroundSize: '100%',
         backgroundRepeat: 'repeat',
         backgroundPosition: 'center'
       }}>
