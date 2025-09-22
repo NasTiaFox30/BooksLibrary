@@ -32,6 +32,16 @@ export default function HomeScreen() {
     }
   };
 
+  const handleBookClick = (book) => {
+    setSelectedBook(book);
+    setIsBookPreviewOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsBookPreviewOpen(false);
+    setSelectedBook(null);
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
