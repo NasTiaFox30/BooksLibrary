@@ -3,7 +3,7 @@ import Bookshelf from '../components/Bookshelf';
 import BookPreview from '../components/BookPreview';
 import { GenerateBooks } from "../components/Tools";
 
-export default function HomeScreen({ onOpenBook, onCatClick }) {
+export default function HomeScreen({ onOpenBook, onCatClick, onLampClick, isLightOn }) {
   const [books, setBooks] = useState([]);
   const [shelves, setShelves] = useState([]);
   const [selectedBook, setSelectedBook] = useState(null);
