@@ -65,6 +65,8 @@ export default function HomeScreen({ onOpenBook, onCatClick }) {
           books={books} 
           onBookClick={handleBookClick}
           onCatClick={onCatClick}
+          onLampClick={onLampClick}
+          isLightOn={isLightOn}
         />
       </main>
 
