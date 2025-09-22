@@ -5,6 +5,7 @@ import HomeScreen from "./pages/HomeScreen";
 import BookScreen from "./pages/BookScreen";
 import AddNewBookForm from "./services/AddNewBookForm";
 import ParallaxDecorations from "./components/ParallaxDecorations";
+import LightOverlay from "./components/LightOverlay";
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState('home');
