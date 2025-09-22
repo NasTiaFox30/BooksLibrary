@@ -15,6 +15,25 @@ export default function Bookshelf({ shelves, books, onBookClick, onCatClick }) {
           backgroundPosition: 'center',
         }}
       >
+        {/* Lamp */ }
+          <img
+            src={isLightOn ? "/textures/oillamp-on.png" : "/textures/oillamp-off.png"}
+            alt="Oil Lamp"
+            className="absolute z-50 left-60 -bottom-1 h-30 w-auto drop-shadow-lg cursor-pointer hover:scale-105 transition-transform duration-200 active:scale-95 select-none lamp-icon"
+            onClick={onLampClick}
+            title={isLightOn ? "Вимкнути світло" : "Увімкнути світло"}
+          />
+          {isLightOn && (
+            <div 
+              className="absolute z-60 left-57 -bottom-3 w-26 h-25 pointer-events-none flame-effect"
+              style={{
+                background: 'radial-gradient(ellipse at center, rgba(241, 207, 143, 0.6) 0%, transparent 70%)',
+                filter: 'blur(5px)',
+              }}
+            />
+          )}
+        
+        {/* Cat */}
         <img
           src="/textures/cat.png"
           alt="Cat"
