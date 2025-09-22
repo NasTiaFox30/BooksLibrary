@@ -57,7 +57,7 @@ export default function HomeScreen() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
       {/* Bookshelf */}
       <main className="flex-grow relative">
         <Bookshelf 
