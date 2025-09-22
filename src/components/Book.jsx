@@ -9,12 +9,16 @@ export default function Book({ book, onBookClick }) {
 
   return (
     <div
-      className="absolute bottom-2 h-24 w-8 border border-1 cursor-pointer transition-all duration-300 flex items-center justify-center overflow-hidden shadow-lg shadow-black-900/30"
+      className="absolute rounded-xs bottom-2 h-24 w-8 border border-1 cursor-pointer transition-all duration-300 flex items-center justify-center overflow-hidden shadow-lg shadow-black-900/30"
       style={{
         left: `${book.position}%`,
         transform: `rotate(${book.rotation}deg) ${isHovered ? 'scale(1.1)' : 'scale(1)'}`,
         backgroundColor: `#${book.colorHue || Math.random() * 360}`,
-        zIndex: isHovered ? 20 : 10 + Math.abs(book.rotation)
+        zIndex: isHovered ? 20 : 10 + Math.abs(book.rotation),
+
+        backgroundImage: `url('/textures/book-texture.png')`,
+        backgroundSize: 'cover',
+        backgroundBlendMode: 'multiply',
       }}
       title={book.title}
       onClick={handleClick}
