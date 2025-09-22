@@ -19,10 +19,6 @@ export default function BookPreview({ book, isOpen, onClose }) {
         throw new Error('Шлях до зображення не вказаний');
         }
         
-        if (!book.imagePath.includes(book.id)) {
-        console.warn('Можливо неправильний шлях до зображення:', book.imagePath);
-        }
-        
         const url = await getDownloadURL(ref(storage, book.imagePath));
         setImageUrl(url);
     } catch (error) {
