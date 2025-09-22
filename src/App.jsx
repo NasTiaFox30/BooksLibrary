@@ -1,11 +1,23 @@
-import MainScreen from "./pages/MainScreen";
+import Header from "./components/Header"
+import Footer from "./components/Footer";
+import HomeScreen from "./pages/HomeScreen";
 
 export default function App() {
 
   return (
-    <div className="min-h-screen bg-amber-100 flex flex-col items-center py-10">
+    <div
+    style={{
+      backgroundImage: 'url(/textures/bg.png)',
+      backgroundSize: 'cover',
+      backgroundSize: '100%',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center'
+    }}>
+      <Header/>
+
+      <HomeScreen />
       
-      <MainScreen/>
+      <Footer/>
       
     </div>
   );
