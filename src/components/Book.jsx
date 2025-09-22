@@ -13,7 +13,7 @@ export default function Book({ book, onBookClick }) {
       style={{
         left: `${book.position}%`,
         transform: `rotate(${book.rotation}deg) ${isHovered ? 'scale(1.1)' : 'scale(1)'}`,
-        backgroundColor: `hsl(${book.colorHue || Math.random() * 360}, 70%, 60%)`,
+        backgroundColor: `#${book.colorHue || Math.random() * 360}`,
         zIndex: isHovered ? 20 : 10 + Math.abs(book.rotation)
       }}
       title={book.title}
