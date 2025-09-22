@@ -79,13 +79,15 @@ export default function App() {
         backgroundPosition: 'center'
       }}>
       <ParallaxDecorations/>
-      <Header/>
-
-      <HomeScreen />
-
-      {/* <AddNewBookForm /> */}
-      <Footer/>
+      <Header
+        currentScreen={currentScreen}
+        onNavigate={setCurrentScreen}
+        onTitleClick={handleTitleClick}
+      />
       
+      {renderScreen()}
+      
+      <Footer />
     </div>
   );
 }
