@@ -44,8 +44,18 @@ export default function HomeScreen() {
     <div className="min-h-screen flex flex-col">
       {/* Bookshelf */}
       <main className="flex-grow relative">
-        <Bookshelf books={books} />
+        <Bookshelf 
+          shelves={shelves} 
+          books={books} 
+          onBookClick={handleBookClick} 
+        />
       </main>
+
+      <BookPreview 
+        book={selectedBook} 
+        isOpen={isBookPreviewOpen} 
+        onClose={handleCloseModal} 
+      />
     </div>
   );
 }
