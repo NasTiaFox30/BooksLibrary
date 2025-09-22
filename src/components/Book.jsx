@@ -9,7 +9,7 @@ export default function Book({ book, onBookClick }) {
 
   return (
     <div
-      className={"absolute bottom-2 h-24 w-8 border border-amber-900 cursor-pointer transition-transform hover:scale-105 flex items-center justify-center overflow-hidden shadow-lg shadow-amber-900/30"}
+      className="absolute bottom-2 h-24 w-8 border border-amber-900 cursor-pointer transition-all duration-300 flex items-center justify-center overflow-hidden shadow-lg shadow-amber-900/30"
       style={{
         left: `${book.position}%`,
         transform: `rotate(${book.rotation}deg)`,
