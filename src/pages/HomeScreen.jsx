@@ -63,7 +63,8 @@ export default function HomeScreen({ onOpenBook, onCatClick }) {
         <Bookshelf 
           shelves={shelves} 
           books={books} 
-          onBookClick={handleBookClick} 
+          onBookClick={handleBookClick}
+          onCatClick={onCatClick}
         />
       </main>
 
