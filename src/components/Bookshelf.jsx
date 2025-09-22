@@ -18,14 +18,14 @@ export default function Bookshelf({ shelves, books, onBookClick }) {
       ></div>
       <div className='h-8 rounded-l border-2 border-b-0 mx-10'
       style={{
-          backgroundColor: '#b2bfc5',
+          backgroundColor: '#d4d4d4',
         }}></div>
       
       {/* Container */}
       <div 
         className="mx-10 px-6 md:px-8 relative border-2 border-b-0"
         style={{
-          backgroundColor: '#b2bfc5',
+          backgroundColor: '#d4d4d4',
           backgroundSize: '100%',
           backgroundRepeat: 'repeat',
         }}
