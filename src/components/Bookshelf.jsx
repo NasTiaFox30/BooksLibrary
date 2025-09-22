@@ -11,7 +11,6 @@ export default function Bookshelf({ shelves, books, onBookClick }) {
         style={{
           backgroundImage: 'url(/textures/top-bookshelf-texture.png)',
           backgroundSize: 'cover',
-          backgroundSize: '100%',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
         }}
