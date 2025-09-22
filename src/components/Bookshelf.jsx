@@ -5,10 +5,27 @@ export default function Bookshelf({ shelves, books, onBookClick }) {
   
   return (
     <div className="max-w-6xl mx-auto px-4">
-      {/* Top */}
-      <div className="h-10 bg-cyan-200 rounded-t-lg"></div>
+      {/* Top texture */}
+      <div 
+        className="h-65 rounded-t-lg"
+        style={{
+          backgroundImage: 'url(/textures/top-bookshelf-texture.png)',
+          backgroundSize: 'cover',
+          backgroundSize: '100%',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center'
+        }}
+      ></div>
+      
       {/* Container */}
-      <div className="text-cyan-200 p-6 md:p-8 relative">
+      <div 
+        className="mx-10 p-6 md:p-8 relative border-2"
+        style={{
+          backgroundColor: '#b2bfc5',
+          backgroundSize: '100%',
+          backgroundRepeat: 'repeat',
+        }}
+      >
         {/* Shelves */}
         {shelves.map((shelf, shelfIndex) => (
           <Shelf 
@@ -21,10 +38,18 @@ export default function Bookshelf({ shelves, books, onBookClick }) {
         ))}
       </div>
 
-      {/* Bottom */}
-      <div className='shadow-2xl'>
-        <div className='h-8 bg-cyan-400'></div>
-      <div className='h-16 bg-cyan-200 rounded-b-md'></div>
+      {/* Bottom texture */}
+      <div className=''>
+        <div 
+          className='h-28'
+          style={{
+            backgroundImage: 'url(/textures/bottom-bookshelf-texture.png)',
+            backgroundSize: 'cover',
+            backgroundSize: '100%',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+          }}
+        ></div>
       </div>
     </div>
   );
