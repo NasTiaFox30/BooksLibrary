@@ -66,6 +66,8 @@ export default function App() {
             onOpenBook={handleOpenBook} 
             onTitleClick={handleTitleClick}
             onCatClick={handleCatClick}
+            onLampClick={handleLampClick}
+            isLightOn={isLightOn}
           />
         );
     }
