@@ -70,3 +70,39 @@
     top: 116%;
     left: 2%;
 }
+
+
+/* Light ON/OFF */
+
+/* animation fire */
+@keyframes flame-flicker {
+
+    0%,
+    100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+
+    25% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(0.95);
+    }
+
+    75% {
+        opacity: 0.9;
+        transform: scale(1.02);
+    }
+}
+
+.flame-effect {
+    animation: flame-flicker 5s infinite alternate;
+    background: radial-gradient(ellipse at center,
+            rgba(214, 113, 46, 0.8) 0%,
+            rgba(210, 186, 99, 0.6) 30%,
+            transparent 70%) !important;
+}
