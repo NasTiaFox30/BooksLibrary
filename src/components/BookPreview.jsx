@@ -5,6 +5,7 @@ import { storage } from '../firebase.config';
 export default function BookPreview({ book, isOpen, onClose }) {
   const [imageUrl, setImageUrl] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showCornerButton, setShowCornerButton] = useState(false);
 
   useEffect(() => {
     if (book && book.imagePath) {
@@ -44,6 +45,8 @@ export default function BookPreview({ book, isOpen, onClose }) {
       <div
         className="relative max-w-full max-h-[90vh] flex items-center justify-center"
         onClick={(e) => e.stopPropagation()}
+        onMouseEnter={() => setShowCornerButton(true)}
+        onMouseLeave={() => setShowCornerButton(false)}
       >
         {loading ? (
           <div className="h-96 bg-gray-200 animate-pulse rounded"></div>
