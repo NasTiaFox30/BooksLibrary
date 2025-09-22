@@ -66,6 +66,7 @@ export default function HomeScreen() {
         book={selectedBook} 
         isOpen={isBookPreviewOpen} 
         onClose={handleClosePreview}
+        onOpenBook={handleOpenBook}
       />
     </div>
   );
