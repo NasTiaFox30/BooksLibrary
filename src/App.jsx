@@ -55,6 +55,11 @@ export default function App() {
     }
   };
 
+  // Turn lights ON/OFF
+  const handleLampClick = () => {
+    setIsLightOn(prev => !prev);
+  }
+
   const renderScreen = () => {
     switch (currentScreen) {
       case 'book':
