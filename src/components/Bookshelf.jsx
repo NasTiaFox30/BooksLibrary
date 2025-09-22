@@ -24,9 +24,7 @@ export default function Bookshelf({ shelves, books, onBookClick, onCatClick }) {
         />
       </div>
       <div className='h-8 rounded-l border-2 border-b-0 mx-10'
-        style={{
-          backgroundColor: '#d4d4d4',
-        }}></div>
+        style={{ backgroundColor: '#d4d4d4' }}></div>
       
       {/* Container */}
       <div 
