@@ -13,12 +13,17 @@ import { db, storage } from '../firebase.config';
 
 // Get all books
 export const getBooks = async () => {
-  const querySnapshot = await getDocs(collection(db, 'books'));
-  const books = [];
-  querySnapshot.forEach((doc) => {
-    books.push({ id: doc.id, ...doc.data() });
-  });
-  return books;
+  try {
+    const querySnapshot = await getDocs(collection(db, "books"));
+    const books = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    return books;
+  } catch (error) {
+    console.error("Помилка завантаження книг:", error);
+    return [];
+  }
 };
 
 // Get uniq genres
