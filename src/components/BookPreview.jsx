@@ -29,6 +29,10 @@ export default function BookPreview({ book, isOpen, onClose }) {
     }
     };
 
+  const handleOpenBook = () => {
+    onOpenBook(book);
+  };
+
   if (!isOpen) return null;
 
   return (
