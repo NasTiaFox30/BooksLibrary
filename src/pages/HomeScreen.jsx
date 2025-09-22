@@ -38,7 +38,7 @@ export default function HomeScreen() {
     setIsBookPreviewOpen(true);
   };
 
-  const handleCloseModal = () => {
+  const handleClosePreview = () => {
     setIsBookPreviewOpen(false);
     setSelectedBook(null);
   };
@@ -65,7 +65,7 @@ export default function HomeScreen() {
       <BookPreview 
         book={selectedBook} 
         isOpen={isBookPreviewOpen} 
-        onClose={handleCloseModal} 
+        onClose={handleClosePreview}
       />
     </div>
   );
