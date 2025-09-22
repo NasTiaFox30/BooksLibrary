@@ -27,7 +27,7 @@ export default function Shelf({ shelf, shelfIndex, books, onBookClick }) {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          {shelf.genre}
+          {shelf.name}
         </div>
       </div>
       
