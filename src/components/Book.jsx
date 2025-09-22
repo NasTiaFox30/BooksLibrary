@@ -1,4 +1,12 @@
-export default function Book({ book }) {
+import { useState } from 'react';
+
+export default function Book({ book, onBookClick }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleClick = () => {
+    onBookClick(book);
+  };
+
   return (
     <div
       className={"absolute bottom-2 h-24 w-8 border border-amber-900 cursor-pointer transition-transform hover:scale-105 flex items-center justify-center overflow-hidden shadow-lg shadow-amber-900/30"}
