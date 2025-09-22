@@ -1,6 +1,6 @@
 import Shelf from './Shelf';
 
-export default function Bookshelf({ shelves, books, onBookClick }) {
+export default function Bookshelf({ shelves, books, onBookClick, onCatClick }) {
   console.log('Bookshelf props:', { shelves, books });
   
   return (
