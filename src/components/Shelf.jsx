@@ -6,15 +6,43 @@ export default function Shelf({ shelf, shelfIndex, books, onBookClick }) {
 
   return (
     <div className="mb-10 last:mb-0 relative">
-      {/* Shelf */}
-      <div className="h-6 bg-amber-700 rounded-md shadow-md relative">
-        <div className="absolute top-0 left-4 text-amber-200 text-sm font-semibold pt-1">
+      {/* Shelf and Genre Label Container */}
+      <div className="relative flex justify-center">
+        {/* Shelf */}
+        <div
+          className="w-full h-9 relative"
+          style={{
+            backgroundRepeat: 'no-repeat',
+            borderTop: '3px solid #3d424c',
+            borderBottom: '3px solid #3d424c'
+          }}
+        ></div>
+
+        {/* Genre Label - Absolutely positioned and centered */}
+        <div
+          className="absolute h-15 z-1 top-3 text-black text-2xl font-semibold px-2 py-1"
+          style={{
+            backgroundImage: 'url(textures/wood-texture.png)',
+            backgroundSize: '100%',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
           {shelf.genre}
         </div>
       </div>
       
       {/* Space for books */}
-      <div className="h-32 bg-amber-600 rounded-b-md relative -mt-1 pt-2 px-2">
+      <div
+        className="h-40 rounded-b-md relative -mt-1 pt-2 px-2"
+        style={{
+          backgroundImage: 'url(textures/shelf-texture.png)',
+          backgroundSize: '100%',
+          backgroundRepeat: 'no-repeat',
+          borderLeft: '3px solid #3d424c',
+          borderRight: '3px solid #3d424c',
+          borderBottom: '3px solid #3d424c'
+        }}
+      >
         {shelfBooks.map(book => (
           <Book 
             key={book.id} 
