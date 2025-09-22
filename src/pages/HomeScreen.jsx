@@ -5,6 +5,8 @@ import { GenerateBooks } from "../components/Tools";
 export default function HomeScreen() {
   const [books, setBooks] = useState([]);
   const [shelves, setShelves] = useState([]);
+  const [selectedBook, setSelectedBook] = useState(null);
+  const [isBookPreviewOpen, setIsBookPreviewOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
   // Generate Books
