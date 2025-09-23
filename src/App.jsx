@@ -80,23 +80,27 @@ export default function App() {
   };
 
   return (
-    <div
-      style={{
-        backgroundImage: 'url(/textures/bg.png)',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'repeat',
-        backgroundPosition: 'center'
-      }}>
-      <ParallaxDecorations/>
-      <Header
-        currentScreen={currentScreen}
-        onNavigate={setCurrentScreen}
-        onTitleClick={handleTitleClick}
-      />
-      
-      {renderScreen()}
-      
-      <Footer />
+    <div className="relative min-h-screen"> 
+      <div
+        style={{
+          backgroundImage: 'url(/textures/bg.png)',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'repeat',
+          backgroundPosition: 'center'
+        }}>
+        <ParallaxDecorations/>
+        <Header
+          currentScreen={currentScreen}
+          onNavigate={setCurrentScreen}
+          onTitleClick={handleTitleClick}
+        />
+        
+        {renderScreen()}
+        
+        <Footer />
+      </div>
+
+      <LightOverlay isLightOn={isLightOn} currentScreen={currentScreen} />
     </div>
   );
 }
