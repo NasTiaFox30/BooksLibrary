@@ -37,7 +37,7 @@ export default function Bookshelf({ shelves, books, onBookClick, onLampClick, on
         <img
           src="/textures/cat.png"
           alt="Cat"
-          className="absolute z-50 right-40 -bottom-20 h-50 w-auto drop-shadow-lg cursor-pointer hover:scale-105 transition-transform duration-200 active:scale-95 select-none"
+          className="absolute z-40 right-40 -bottom-20 h-50 w-auto drop-shadow-lg cursor-pointer hover:scale-105 transition-transform duration-200 active:scale-95 select-none"
           onClick={onCatClick}
           title="Мяу 💤"
         />
