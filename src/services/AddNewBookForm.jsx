@@ -20,6 +20,7 @@ export default function AddNewBookForm({ onSuccess }) {
   const [pages, setPages] = useState('');
   const [language, setLanguage] = useState('Українська');
   const [publisher, setPublisher] = useState('');
+  const [characters, setCharacters] = useState([{ id: 1, name: '' }]);
   const [description, setDescription] = useState('');
   const [opinion, setOpinion] = useState('');
   const [colorHue, setColorHue] = useState('#4A90E2');
@@ -156,6 +157,7 @@ export default function AddNewBookForm({ onSuccess }) {
       setPages('');
       setLanguage('Українська');
       setPublisher('');
+      setCharacters([{ id: 1, name: '' }]);
       setDescription('');
       setOpinion('');
       setFile(null);
