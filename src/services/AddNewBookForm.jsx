@@ -119,6 +119,9 @@ export default function AddNewBookForm({ onSuccess }) {
       setTitle('');
       setAuthor('');
       setYear('');
+      setPages('');
+      setLanguage('Українська');
+      setPublisher('');
       setDescription('');
       setFile(null);
       setPreviewUrl(null);
