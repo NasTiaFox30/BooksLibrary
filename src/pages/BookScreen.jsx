@@ -192,9 +192,7 @@ export default function BookScreen({ book, onGoBack }) {
             <div className="relative mt-12">
               <div className="bg-yellow-50 p-6 rounded-lg shadow-md relative">
                 <h3 className="text-xl font-bold mb-3 flex items-center text-amber-800">
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
-                  </svg>
+                  <img src={decor5} alt="" className='w-10 h-10 mr-2' />
                   Моя думка
                 </h3>
                 <p className="text-gray-700 leading-relaxed italic pacifico-regular">
