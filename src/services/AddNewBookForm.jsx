@@ -201,33 +201,65 @@ export default function AddNewBookForm({ onSuccess }) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <label className="flex flex-col">
-          <span className="font-medium mb-1">Назва</span>
-          <input value={title} onChange={(e) => setTitle(e.target.value)} className="p-2 border rounded" />
+          <span className="font-medium mb-2">Назва книги *</span>
+          <input 
+            value={title} 
+            onChange={(e) => setTitle(e.target.value)} 
+            className="p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-500" 
+            placeholder="Введіть назву книги"
+          />
         </label>
 
         <label className="flex flex-col">
-          <span className="font-medium mb-1">Автор</span>
-          <input value={author} onChange={(e) => setAuthor(e.target.value)} className="p-2 border rounded" />
+          <span className="font-medium mb-2">Автор *</span>
+          <input 
+            value={author} 
+            onChange={(e) => setAuthor(e.target.value)} 
+            className="p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-500" 
+            placeholder="Введіть автора"
+          />
         </label>
 
         <label className="flex flex-col">
-          <span className="font-medium mb-1">Рік</span>
-          <input value={year} onChange={(e) => setYear(e.target.value)} className="p-2 border rounded" />
+          <span className="font-medium mb-2">Рік видання</span>
+          <input 
+            type="number"
+            value={year} 
+            onChange={(e) => setYear(e.target.value)} 
+            className="p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-500" 
+            placeholder="Наприклад: 2024"
+          />
         </label>
 
         <label className="flex flex-col">
-          <span className="font-medium mb-1">Мова (завмовчуванням 'Українська')</span>
-          <input value={language} onChange={(e) => setLanguage(e.target.value)} className="p-2 border rounded" />
+          <span className="font-medium mb-2">Мова</span>
+          <input 
+            value={language} 
+            onChange={(e) => setLanguage(e.target.value)} 
+            className="p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-500" 
+            placeholder="Українська"
+          />
         </label>
 
         <label className="flex flex-col">
-          <span className="font-medium mb-1">Кількість сторінок</span>
-          <input value={pages} onChange={(e) => setPages(e.target.value)} className="p-2 border rounded" />
+          <span className="font-medium mb-2">Кількість сторінок</span>
+          <input 
+            type="number"
+            value={pages} 
+            onChange={(e) => setPages(e.target.value)} 
+            className="p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-500" 
+            placeholder="Наприклад: 256"
+          />
         </label>
 
         <label className="flex flex-col">
-          <span className="font-medium mb-1">Видавництво</span>
-          <input value={publisher} onChange={(e) => setPublisher(e.target.value)} className="p-2 border rounded" />
+          <span className="font-medium mb-2">Видавництво</span>
+          <input 
+            value={publisher} 
+            onChange={(e) => setPublisher(e.target.value)} 
+            className="p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-500" 
+            placeholder="Назва видавництва"
+          />
         </label>
 
         {/* Відображеня на сторінці */}
