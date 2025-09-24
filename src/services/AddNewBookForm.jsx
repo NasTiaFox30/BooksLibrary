@@ -199,7 +199,7 @@ export default function AddNewBookForm({ onSuccess }) {
 
       {error && <div className="mb-4 text-red-600">{error}</div>}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <label className="flex flex-col">
           <span className="font-medium mb-2">Назва книги *</span>
           <input 
