@@ -141,20 +141,24 @@ export default function BookScreen({ book, onGoBack }) {
               
             </div>
 
-            {/* Characters */}
-            <div className="mt-8">
-              <h3 className="text-xl font-bold text-amber-900 mb-4 flex items-center">
-                Персонажі книги
-              </h3>
-              <ul className="space-y-2">
-                {characters.map((character, index) => (
-                  <li key={index} className="flex items-start">
+              {/* Characters */}
+              <div className="mt-8">
+                <h3 className="text-xl font-bold text-amber-900 mb-4 flex items-center">
+                  Персонажі книги
+                </h3>
+                <ul className="space-y-2">
+                  {characters.length > 0 ? (
+                  characters.map((character, index) => (
+                    <li key={index} className="flex items-start">
                     <span className="text-amber-600 mr-2">-></span>
                     <span className="text-gray-700 pacifico-regular">{character}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                    </li>
+                  ))
+                  ) : (
+                    <p className="text-gray-500 italic">Інформація про персонажів відсутня.</p>
+                  )}
+                </ul>
+              </div>
 
             {/* Addition info */}
             <div className="mt-15 grid gap-4 text-sm text-gray-600">
