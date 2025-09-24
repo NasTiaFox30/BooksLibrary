@@ -134,6 +134,7 @@ export default function AddNewBookForm({ onSuccess }) {
         pages: pages ? Number(pages) : null,
         language: language.trim(),
         publisher: publisher.trim(),
+        characters: characters.map(char => char.name).filter(name => name.trim() !== ''),
         description: description.trim(),
         opinion: opinion.trim(),
         imagePath: imagePath || null,
