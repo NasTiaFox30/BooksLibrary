@@ -90,7 +90,7 @@ export default function BookScreen({ book, onGoBack }) {
 
       {/* Book view */}
       <div
-        className="h-200 w-7xl mx-auto shadow-2xl overflow-hidden"
+        className="h-210 w-7xl mx-auto shadow-2xl overflow-hidden"
         style={{
           backgroundImage: `url('/textures/bookview-white.png')`,
           backgroundSize: 'cover',
