@@ -136,7 +136,8 @@ export default function AddNewBookForm({ onSuccess }) {
       setFile(null);
       setPreviewUrl(null);
       setSelectedGenres([]);
-      setColorHue('');
+      setColorHue('#4A90E2');
+      setSelectedSize('classic');
       setUploadProgress(null);
 
       if (onSuccess) onSuccess();
