@@ -27,7 +27,7 @@ export default function Book({ book, onBookClick }) {
 
   return (
     <div
-      className="absolute rounded-xs bottom-2 h-24 w-8 border border-1 cursor-pointer transition-all duration-300 flex items-center justify-center overflow-hidden shadow-lg shadow-black-900/30"
+      className={`absolute rounded-xs bottom-2 border border-1 cursor-pointer transition-all duration-300 flex items-center justify-center overflow-hidden shadow-lg shadow-black-900/30 ${widthClass} ${heightClass}`}
       style={{
         left: `${book.position}%`,
         transform: `rotate(${book.rotation}deg) ${isHovered ? 'scale(1.1)' : 'scale(1)'}`,
