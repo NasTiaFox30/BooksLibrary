@@ -3,7 +3,16 @@ import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '../firebase.config'
 
-// Компонент форми для додавання нової книги (всі дані + фото)
+// Variants
+const BOOK_SIZES = [
+  { id: 'classic', name: '📚 Класична', width: 8, height: 26, label: '26x8' },
+  { id: 'narrow-medium', name: '📖 Вузька середня', width: 7, height: 24, label: '24x7' },
+  { id: 'medium-tall', name: '📘 Середня висока', width: 8, height: 28, label: '28x8' },
+  { id: 'narrow-tall', name: '📕 Вузька висока', width: 7, height: 28, label: '28x7' },
+  { id: 'wide-short', name: '📗 Широка низька', width: 9, height: 24, label: '24x9' },
+  { id: 'large', name: '📙 Велика', width: 9, height: 28, label: '28x9' }
+];
+
 export default function AddNewBookForm({ onSuccess }) {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
