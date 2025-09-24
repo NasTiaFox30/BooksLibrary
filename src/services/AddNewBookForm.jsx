@@ -310,18 +310,39 @@ export default function AddNewBookForm({ onSuccess }) {
         </div>
       </div>
 
-      <div className="mt-4">
-        <label className="">
-          <input type="file" accept="image/*" className='cursor-pointer rounded-md border-1 p-2 bg-blue-50' onChange={(e) => setFile(e.target.files?.[0] || null)} />
-        </label>
-
-        {previewUrl && (
-          <div className="mt-4">
-            <div className="w-40 h-56 border rounded overflow-hidden">
-              <img src={previewUrl} alt="preview" className="w-full h-full object-cover" />
-            </div>
+      {/* Завантаження зображення */}
+      <div className="mt-6">
+        <label className="block font-medium mb-2">Обкладинка книги</label>
+        
+        {!previewUrl && (
+          <div className="flex flex-col md:flex-row gap-4 items-start">
+            <label className="cursor-pointer">
+              <div className="px-4 py-2 bg-blue-50 text-blue-700 rounded border border-blue-200 hover:bg-blue-100 transition-colors">
+                📷 Обрати зображення
+              </div>
+              <input 
+                type="file" 
+                accept="image/*" 
+                className="hidden" 
+                onChange={(e) => setFile(e.target.files?.[0] || null)} 
+              />
+            </label>
           </div>
         )}
+        {previewUrl && (
+          <div className="flex items-center gap-4">
+            <div className="w-40 h-56 border rounded overflow-hidden shadow-md">
+              <img src={previewUrl} alt="Прев'ю обкладинки" className="w-full h-full object-cover" />
+            </div>
+            <button
+              type="button"
+              onClick={() => setFile(null)}
+              className="text-red-600 hover:text-red-800 text-sm"
+            >
+              Видалити
+            </button>
+          </div>
+        )} 
 
         {uploadProgress !== null && (
           <div className="mt-4">
