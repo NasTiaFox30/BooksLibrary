@@ -157,6 +157,7 @@ export default function AddNewBookForm({ onSuccess }) {
       setLanguage('Українська');
       setPublisher('');
       setDescription('');
+      setOpinion('');
       setFile(null);
       setPreviewUrl(null);
       setSelectedGenres([]);
