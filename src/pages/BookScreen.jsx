@@ -9,6 +9,7 @@ export default function BookScreen({ book, onGoBack }) {
   const [imageUrl, setImageUrl] = useState(null);
   const [loading, setLoading] = useState(true);
   const [genreNames, setGenreNames] = useState([]);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     if (book) {
