@@ -134,7 +134,7 @@ export default function BookScreen({ book, onGoBack }) {
                     <span className="font-semibold">Автор:</span> <span className='pacifico-regular'>{book.author || 'Невідомо'}</span>
                   </p>
                   <p className="text-lg text-gray-700">
-                    <span className="font-semibold">Жанр:</span> <span className='pacifico-regular'>{book.genres}</span>
+                    <span className="font-semibold">Жанр:</span> <span className='pacifico-regular'>{genreNames.join(', ')}</span>
                   </p>
                   <p className="text-lg text-gray-700">
                     <span className="font-semibold">Рік:</span> <span className='pacifico-regular'>{book.year || 'Невідомо'}</span>
