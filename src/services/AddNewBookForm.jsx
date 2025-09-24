@@ -110,7 +110,9 @@ export default function AddNewBookForm({ onSuccess }) {
         });
       }
 
-      // Формуємо об'єкт книги
+      // Отримуємо обраний розмір
+      const selectedSizeData = BOOK_SIZES.find(size => size.id === selectedSize);
+      
       const newBook = {
         title: title.trim(),
         author: author.trim(),
