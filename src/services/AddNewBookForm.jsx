@@ -133,7 +133,19 @@ export default function AddNewBookForm({ onSuccess }) {
       // Додаємо документ у колекцію books
       await addDoc(collection(db, 'books'), newBook);
 
-      // Очистка форми
+      ClearFields();
+
+      if (onSuccess) onSuccess();
+
+    } catch (err) {
+      console.error('Помилка під час створення книги:', err);
+      setError('Помилка при збереженні. Спробуйте ще раз.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const ClearFields = () => {
       setTitle('');
       setAuthor('');
       setYear('');
@@ -147,15 +159,7 @@ export default function AddNewBookForm({ onSuccess }) {
       setColorHue('#4A90E2');
       setSelectedSize('classic');
       setUploadProgress(null);
-
-      if (onSuccess) onSuccess();
-
-    } catch (err) {
-      console.error('Помилка під час створення книги:', err);
-      setError('Помилка при збереженні. Спробуйте ще раз.');
-    } finally {
-      setLoading(false);
-    }
+      setError(null);
   };
 
   // Book preview example
