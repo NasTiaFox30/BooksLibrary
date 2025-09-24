@@ -203,7 +203,7 @@ export default function AddNewBookForm({ onSuccess }) {
     <form onSubmit={handleSubmit} className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
       <h2 className="text-2xl font-semibold mb-6">Додати нову книгу 📘</h2>
 
-      {error && <div className="mb-4 text-red-600">{error}</div>}
+      {error && <div className="mb-4 p-3 bg-red-100 text-red-700 rounded">{error}</div>}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <label className="flex flex-col">
