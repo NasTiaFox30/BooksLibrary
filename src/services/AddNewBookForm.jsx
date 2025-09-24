@@ -309,6 +309,37 @@ export default function AddNewBookForm({ onSuccess }) {
         {renderBookPreview()}
       </div>
 
+      {/* Персонажі */}
+      <div className="mt-6">
+        <span className="font-medium mb-3 block">Персонажі книги</span>
+        {characters.map((char, index) => (
+          <div key={char.id} className="flex items-center gap-2 mb-2">
+            <input
+              value={char.name}
+              onChange={(e) => handleCharacterChange(char.id, e.target.value)}
+              className="p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-500 flex-grow"
+              placeholder={`Персонаж ${index + 1}`}
+            />
+            {characters.length > 1 && (
+              <button
+                type="button"
+                onClick={() => handleRemoveCharacter(char.id)}
+                className="p-2 text-red-600 hover:text-red-800 transition-colors"
+              >
+                ❌
+              </button>
+            )}
+          </div>
+        ))}
+        <button
+          type="button"
+          onClick={handleAddCharacter}
+          className="mt-2 px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors"
+        >
+          ➕ Додати ще персонажа
+        </button>
+      </div>
+
       {/* Опис */}
       <label className="flex flex-col mt-6">
         <span className="font-medium mb-2">Опис книги</span>
