@@ -181,9 +181,14 @@ export default function AddNewBookForm({ onSuccess }) {
         {/* TODO: ВИБІР РОЗМІРУ КНИГИ) */}
 
         <label className="flex flex-col">
-          <span className="font-medium mb-1">Колір (HEX 000000)</span>
-          <input value={colorHue} onChange={(e) => setColorHue(e.target.value)} placeholder="наприклад 7c1716" className="p-2 border rounded" />
-        </label>
+        <span className="font-medium mb-1">Колір обкладинки</span>
+        <input
+          type="color"
+          value={colorHue}
+          onChange={(e) => setColorHue(e.target.value)}
+          className="w-12 h-12 border-none  cursor-pointer p-0"
+        />
+      </label>
 
       </div>
 
