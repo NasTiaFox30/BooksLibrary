@@ -150,6 +150,41 @@ export default function AddNewBookForm({ onSuccess }) {
     }
   };
 
+  // Book preview example
+  const renderBookPreview = () => {
+    const size = BOOK_SIZES.find(s => s.id === selectedSize) || BOOK_SIZES[0];
+    
+    return (
+      <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+        <h3 className="font-medium mb-2">Попередній перегляд на полиці:</h3>
+        <div className="flex items-end space-x-2">
+          <div 
+            className="border border-1 border-gray-300 rounded-xs flex items-center justify-center relative shadow-md"
+            style={{
+              width: `${size.width * 4}px`,
+              height: `${size.height * 4}px`,
+              backgroundColor: colorHue,
+              backgroundImage: `url('/textures/book-texture.png')`,
+              backgroundSize: 'cover',
+              backgroundBlendMode: 'multiply',
+            }}
+          >
+            <span 
+              className="text-xs text-center font-bold text-white text-wrap rotate-90 transform origin-center"
+              style={{ fontSize: '10px' }}
+            >
+              {title || 'Назва книги'}
+            </span>
+            <div className="absolute bottom-0 left-0 right-0 h-4 bg-black opacity-20"></div>
+          </div>
+          <div className="text-xs text-gray-600">
+            Розмір: {size.label}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <form onSubmit={handleSubmit} className="max-w-3xl mx-auto p-6 bg-white rounded shadow">
       <h2 className="text-2xl font-semibold mb-4">Додати нову книгу 📘</h2>
