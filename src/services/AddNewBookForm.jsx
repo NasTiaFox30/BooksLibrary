@@ -162,7 +162,7 @@ export default function AddNewBookForm({ onSuccess }) {
         </label>
 
         <label className="flex flex-col">
-          <span className="font-medium mb-1">Мова (необовязково - завмовчуванням 'Українська')</span>
+          <span className="font-medium mb-1">Мова (завмовчуванням 'Українська')</span>
           <input value={language} onChange={(e) => setLanguage(e.target.value)} className="p-2 border rounded" />
         </label>
 
