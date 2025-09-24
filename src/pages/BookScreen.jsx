@@ -61,6 +61,10 @@ export default function BookScreen({ book, onGoBack }) {
       setGenreNames(['Невідомо']);
     }
   };
+  
+  const loadCharacters = () => {
+    setCharacters(book.characters || []);
+  };
 
   if (!book) {
     return (
