@@ -21,6 +21,7 @@ export default function AddNewBookForm({ onSuccess }) {
   const [language, setLanguage] = useState('Українська');
   const [publisher, setPublisher] = useState('');
   const [description, setDescription] = useState('');
+  const [opinion, setOpinion] = useState('');
   const [colorHue, setColorHue] = useState('#4A90E2');
   const [selectedSize, setSelectedSize] = useState('classic');
   const [genresList, setGenresList] = useState([]);
