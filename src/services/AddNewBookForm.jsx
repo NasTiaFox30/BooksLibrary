@@ -267,31 +267,43 @@ export default function AddNewBookForm({ onSuccess }) {
         {/* TODO: ВИБІР РОЗМІРУ КНИГИ) */}
 
         <label className="flex flex-col">
-        <span className="font-medium mb-1">Колір обкладинки</span>
-        <input
-          type="color"
-          value={colorHue}
-          onChange={(e) => setColorHue(e.target.value)}
-          className="w-12 h-12 border-none  cursor-pointer p-0"
+          <span className="font-medium mb-2">Колір обкладинки</span>
+          <input
+            type="color"
+            value={colorHue}
+            onChange={(e) => setColorHue(e.target.value)}
+            className="w-16 h-16 border-none rounded cursor-pointer p-0"
+          />
+        </label>
+        {renderBookPreview()}
+      </div>
+
+      {/* Опис */}
+      <label className="flex flex-col mt-6">
+        <span className="font-medium mb-2">Опис книги</span>
+        <textarea 
+          value={description} 
+          onChange={(e) => setDescription(e.target.value)} 
+          rows={4} 
+          className="p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-500" 
+          placeholder="Опишіть книгу..."
         />
       </label>
 
-      </div>
-
-      <label className="flex flex-col mt-4">
-        <span className="font-medium mb-1">Опис</span>
-        <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={5} className="p-2 border rounded" />
-      </label>
-
-      <div className="mt-4">
-        <span className="font-medium mb-2 block">Жанри (оберіть один або кілька)</span>
+      {/* Жанри */}
+      <div className="mt-6">
+        <span className="font-medium mb-3 block">Жанри * (оберіть один або кілька)</span>
         <div className="flex flex-wrap gap-2">
           {genresList.map(g => (
             <button
               key={g.id}
               type="button"
               onClick={() => handleGenreToggle(g.id)}
-              className={`px-3 py-1 rounded-full border ${selectedGenres.includes(g.id) ? 'bg-amber-400 text-white' : 'bg-white'}`}>
+              className={`px-4 py-2 rounded-full border transition-colors ${
+                selectedGenres.includes(g.id) 
+                  ? 'bg-amber-500 text-white border-amber-500' 
+                  : 'bg-white text-gray-700 border-gray-300 hover:border-amber-300'
+              }`}>
               {g.name}
             </button>
           ))}
@@ -312,11 +324,14 @@ export default function AddNewBookForm({ onSuccess }) {
         )}
 
         {uploadProgress !== null && (
-          <div className="mt-2">
-            <div className="w-full bg-gray-200 h-2 rounded">
-              <div style={{ width: `${uploadProgress}%` }} className="h-2 rounded" />
+          <div className="mt-4">
+            <div className="w-full bg-gray-200 h-3 rounded">
+              <div 
+                style={{ width: `${uploadProgress}%` }} 
+                className="h-3 rounded bg-green-500 transition-all duration-300"
+              />
             </div>
-            <div className="text-sm mt-1">Завантаження: {uploadProgress}%</div>
+            <div className="text-sm mt-1 text-gray-600">Завантаження: {uploadProgress}%</div>
           </div>
         )}
       </div>
