@@ -155,10 +155,16 @@ export default function AddNewBookForm({ onSuccess }) {
           <input value={year} onChange={(e) => setYear(e.target.value)} className="p-2 border rounded" />
         </label>
 
+
+        {/* Відображеня на сторінці */}
+
+        {/* TODO: ВИБІР РОЗМІРУ КНИГИ) */}
+
         <label className="flex flex-col">
           <span className="font-medium mb-1">Колір (HEX 000000)</span>
           <input value={colorHue} onChange={(e) => setColorHue(e.target.value)} placeholder="наприклад 7c1716" className="p-2 border rounded" />
         </label>
+
       </div>
 
       <label className="flex flex-col mt-4">
