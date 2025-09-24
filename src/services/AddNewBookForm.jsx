@@ -122,6 +122,7 @@ export default function AddNewBookForm({ onSuccess }) {
         language: language.trim(),
         publisher: publisher.trim(),
         description: description.trim(),
+        opinion: opinion.trim(),
         imagePath: imagePath || null,
         colorHue: colorHue.replace('#', ''),
         size: selectedSizeData ? {
