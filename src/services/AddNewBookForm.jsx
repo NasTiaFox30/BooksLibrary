@@ -265,11 +265,33 @@ export default function AddNewBookForm({ onSuccess }) {
             placeholder="Назва видавництва"
           />
         </label>
+      </div>
 
-        {/* Відображеня на сторінці */}
+      {/* Вибір розміру книги */}
+      <div className="mt-6">
+        <span className="font-medium mb-3 block">Розмір книги на полиці</span>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {BOOK_SIZES.map(size => (
+            <label key={size.id} className="flex items-center p-3 border border-gray-300 rounded cursor-pointer hover:bg-gray-50 transition-colors">
+              <input
+                type="radio"
+                name="bookSize"
+                value={size.id}
+                checked={selectedSize === size.id}
+                onChange={(e) => setSelectedSize(e.target.value)}
+                className="mr-3"
+              />
+              <div className="flex-1">
+                <div className="font-medium">{size.name}</div>
+                <div className="text-sm text-gray-600">{size.label} (px)</div>
+              </div>
+            </label>
+          ))}
+        </div>
+      </div>
 
-        {/* TODO: ВИБІР РОЗМІРУ КНИГИ) */}
-
+      {/* Колір обкладинки */}
+      <div className="mt-6 flex items-center gap-4">
         <label className="flex flex-col">
           <span className="font-medium mb-2">Колір обкладинки</span>
           <input
