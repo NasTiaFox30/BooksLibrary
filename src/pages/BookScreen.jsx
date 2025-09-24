@@ -31,6 +31,30 @@ export default function BookScreen({ book, onGoBack }) {
     }
   };
 
+  const loadGenreNames = async () => {
+    if (!book || !book.genres || book.genres.length === 0) {
+      setGenreNames(['Невідомо']);
+      return;
+    }
+
+    try {
+      const allGenres = await getGenres();
+      
+      const genresMap = allGenres.reduce((map, genre) => {
+        map[genre.id] = genre.name;
+        return map;
+      }, {});
+      
+      // search by id
+      const names = book.genres.map(genreId => genresMap[genreId]).filter(name => name);
+      
+      setGenreNames(names.length > 0 ? names : ['Невідомо']);
+    } catch (error) {
+      console.error("Помилка завантаження назв жанрів:", error);
+      setGenreNames(['Невідомо']);
+    }
+  };
+
   if (!book) {
     return (
       <div className="min-h-screen flex items-center justify-center">
