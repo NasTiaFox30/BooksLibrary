@@ -321,6 +321,18 @@ export default function AddNewBookForm({ onSuccess }) {
         />
       </label>
 
+      {/* Моя думка */}
+      <label className="flex flex-col mt-6">
+        <span className="font-medium mb-2">Моя власна думка </span>
+        <textarea 
+          value={opinion} 
+          onChange={(e) => setOpinion(e.target.value)} 
+          rows={4} 
+          className="p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-500" 
+          placeholder="Що думаєш? Опиши свої враження..."
+        />
+      </label>
+
       {/* Жанри */}
       <div className="mt-6">
         <span className="font-medium mb-3 block">Жанри * (оберіть один або кілька)</span>
