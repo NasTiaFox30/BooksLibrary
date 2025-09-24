@@ -236,7 +236,7 @@ export default function AddNewBookForm({ onSuccess }) {
             value={year} 
             onChange={(e) => setYear(e.target.value)} 
             className="p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-500" 
-            placeholder="Наприклад: 2024"
+            placeholder="Наприклад: 2025"
           />
         </label>
 
