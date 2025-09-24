@@ -208,9 +208,8 @@ export default function AddNewBookForm({ onSuccess }) {
       </div>
 
       <div className="mt-4">
-        <label className="flex items-center gap-4">
-          <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] || null)} />
-          <span className="text-sm text-gray-600">Обрати обкладинку (опціонально)</span>
+        <label className="">
+          <input type="file" accept="image/*" className='cursor-pointer rounded-md border-1 p-2 bg-blue-50' onChange={(e) => setFile(e.target.files?.[0] || null)} />
         </label>
 
         {previewUrl && (
