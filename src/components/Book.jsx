@@ -25,12 +25,12 @@ export default function Book({ book, onBookClick }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="flex flex-col items-center">
-        <span className="text-xs font-bold text-white whitespace-nowrap rotate-90 transform origin-center mt-8">
+        <span className="text-xs text-center font-bold text-white text-wrap rotate-90 transform origin-center"
+          style={{ fontSize: '10px' }}
+        >
           {book.title}
         </span>
         <div className="h-4 w-full bg-black opacity-20 absolute bottom-0"></div>
-      </div>
     </div>
   );
 }
