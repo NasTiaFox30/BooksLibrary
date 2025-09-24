@@ -186,8 +186,8 @@ export default function AddNewBookForm({ onSuccess }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-3xl mx-auto p-6 bg-white rounded shadow">
-      <h2 className="text-2xl font-semibold mb-4">Додати нову книгу 📘</h2>
+    <form onSubmit={handleSubmit} className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+      <h2 className="text-2xl font-semibold mb-6">Додати нову книгу 📘</h2>
 
       {error && <div className="mb-4 text-red-600">{error}</div>}
 
