@@ -6,6 +6,7 @@ import { Tape } from '../components/Decor';
 export default function BookScreen({ book, onGoBack }) {
   const [imageUrl, setImageUrl] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [genreNames, setGenreNames] = useState([]);
 
   useEffect(() => {
     if (book && book.imagePath) {
