@@ -19,6 +19,9 @@ export default function BookScreen({ book, onGoBack }) {
       if (book.genres && book.genres.length > 0) {
         loadGenreNames();
       }
+      if (book.characters) {
+        loadCharacters();
+      }
     }
   }, [book]);
 
