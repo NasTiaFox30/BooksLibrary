@@ -10,8 +10,13 @@ export default function BookScreen({ book, onGoBack }) {
   const [genreNames, setGenreNames] = useState([]);
 
   useEffect(() => {
-    if (book && book.imagePath) {
-      loadBookImage();
+    if (book) {
+      if (book.imagePath) {
+        loadBookImage();
+      }
+      if (book.genres && book.genres.length > 0) {
+        loadGenreNames();
+      }
     }
   }, [book]);
 
