@@ -160,58 +160,55 @@ export default function BookScreen({ book, onGoBack }) {
                 </ul>
               </div>
 
-            {/* Addition info */}
-            <div className="mt-15 grid gap-4 text-sm text-gray-600">
-              <div>
-                <span className="font-semibold">Сторінок:</span> <span className='pacifico-regular'>{book.pages || 'Невідомо'}</span>
-              </div>
-              <div>
-                <span className="font-semibold">Мова:</span> <span className='pacifico-regular'>{book.language || 'Українська'}</span>
-              </div>
-              <div>
-                <span className="font-semibold">Видавництво:</span> <span className='pacifico-regular'>{book.publisher || 'Невідомо'}</span>
-              </div>
-            </div>
-
-            
-          </div>
-
-          {/* Right page */}
-          <div className="md:w-1/2 p-10 pr-20 relative">
-
-            {/* Description */}
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold text-amber-900 mb-4 flex items-center">
-                Про книгу:
-              </h2>
-              <div className="text-gray-700 leading-relaxed text-lg">
-                <p className='pacifico-regular'>{book.description || 'Опис відсутній.'}</p>
+              {/* Addition info */}
+              <div className="mt-15 grid gap-4 text-sm text-gray-600">
+                <div>
+                  <span className="font-semibold">Сторінок:</span> <span className='pacifico-regular'>{book.pages || 'Невідомо'}</span>
+                </div>
+                <div>
+                  <span className="font-semibold">Мова:</span> <span className='pacifico-regular'>{book.language || 'Українська'}</span>
+                </div>
+                <div>
+                  <span className="font-semibold">Видавництво:</span> <span className='pacifico-regular'>{book.publisher || 'Невідомо'}</span>
+                </div>
               </div>
             </div>
 
-            {/* Opinion note */}
-            <div className="relative mt-12">
-              <div className="bg-yellow-50 p-6 rounded-lg shadow-md relative">
-                <h3 className="text-xl font-bold mb-3 flex items-center text-amber-800">
-                  <img src={decor5} alt="" className='w-10 h-10 mr-2' />
-                  Моя думка
-                </h3>
-                <p className="text-gray-700 leading-relaxed italic pacifico-regular">
-                  "{adminReview}"
-                </p>
-                <div className="mt-3 text-right text-sm ">
-                  ~ Власниця
+            {/* Right page */}
+            <div className="md:w-1/2 p-10 pr-20 relative">
+
+              {/* Description */}
+              <div className="mb-8">
+                <h2 className="text-2xl font-bold text-amber-900 mb-4 flex items-center">
+                  Про книгу:
+                </h2>
+                <div className="text-gray-700 leading-relaxed text-lg">
+                  <p className='pacifico-regular'>{book.description || 'Опис відсутній.'}</p>
                 </div>
               </div>
 
-              <Tape degree="45" size="60" top={-20} right={-20}/> 
-              <Tape degree="45" size="50" bottom={-20} left={-20}/>
-            </div>
+              {/* Opinion note */}
+              <div className="relative mt-12">
+                <div className="bg-yellow-50 p-6 rounded-lg shadow-md relative">
+                  <h3 className="text-xl font-bold mb-3 flex items-center text-amber-800">
+                    <img src={decor5} alt="" className='w-10 h-10 mr-2' />
+                    Моя думка
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed italic pacifico-regular">
+                    "{book.opinion || 'Власник не залишив свою думку про книгу.'}"
+                  </p>
+                  <div className="mt-3 text-right text-sm ">
+                    ~ Власниця
+                  </div>
+                </div>
 
+                <Tape degree="45" size="60" top={-20} right={-20}/> 
+                <Tape degree="45" size="50" bottom={-20} left={-20}/>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
-
-    </div>
   );
 }
