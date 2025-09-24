@@ -74,6 +74,18 @@ export default function AddNewBookForm({ onSuccess }) {
     return null;
   };
 
+  const handleAddCharacter = () => {
+    setCharacters(prev => [...prev, { id: Date.now(), name: '' }]);
+  };
+  const handleRemoveCharacter = (id) => {
+    setCharacters(prev => prev.filter(char => char.id !== id));
+  };
+  const handleCharacterChange = (id, newName) => {
+    setCharacters(prev => prev.map(char => (
+      char.id === id ? { ...char, name: newName } : char
+    )));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
