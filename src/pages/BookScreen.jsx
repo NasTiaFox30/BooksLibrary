@@ -3,6 +3,7 @@ import { getDownloadURL, ref } from 'firebase/storage';
 import { storage } from '../firebase.config';
 import { Tape } from '../components/Decor';
 import { getGenres } from '../services/booksService';
+import decor5 from '/textures/decor/decor8.png';
 
 export default function BookScreen({ book, onGoBack }) {
   const [imageUrl, setImageUrl] = useState(null);
