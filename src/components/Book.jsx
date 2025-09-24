@@ -7,6 +7,24 @@ export default function Book({ book, onBookClick }) {
     onBookClick(book);
   };
 
+  const bookSize = book.size || { width: 8, height: 26 };
+  
+  const sizeClasses = {
+    width: {
+      7: 'w-7',
+      8: 'w-8', 
+      9: 'w-9'
+    },
+    height: {
+      24: 'h-24',
+      26: 'h-26',
+      28: 'h-28'
+    }
+  };
+
+  const widthClass = sizeClasses.width[bookSize.width] || 'w-8';
+  const heightClass = sizeClasses.height[bookSize.height] || 'h-26';
+
   return (
     <div
       className="absolute rounded-xs bottom-2 h-24 w-8 border border-1 cursor-pointer transition-all duration-300 flex items-center justify-center overflow-hidden shadow-lg shadow-black-900/30"
