@@ -120,8 +120,13 @@ export default function AddNewBookForm({ onSuccess }) {
         publisher: publisher.trim(),
         description: description.trim(),
         imagePath: imagePath || null,
-        colorHue: colorHue ? colorHue : Math.floor(Math.random() * 360),
-        genres: selectedGenres, // масив id жанрів
+        colorHue: colorHue.replace('#', ''),
+        size: selectedSizeData ? {
+          id: selectedSizeData.id,
+          width: selectedSizeData.width,
+          height: selectedSizeData.height
+        } : { id: 'classic', width: 8, height: 26 },
+        genres: selectedGenres,
         createdAt: new Date()
       };
 
