@@ -8,6 +8,9 @@ export default function AddNewBookForm({ onSuccess }) {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [year, setYear] = useState('');
+  const [pages, setPages] = useState('');
+  const [language, setLanguage] = useState('Українська');
+  const [publisher, setPublisher] = useState('');
   const [description, setDescription] = useState('');
   const [colorHue, setColorHue] = useState('');
   const [genresList, setGenresList] = useState([]);
