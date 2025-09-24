@@ -312,7 +312,7 @@ export default function AddNewBookForm({ onSuccess }) {
         <textarea 
           value={description} 
           onChange={(e) => setDescription(e.target.value)} 
-          rows={4} 
+          rows={5} 
           className="p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-500" 
           placeholder="Опишіть книгу..."
         />
