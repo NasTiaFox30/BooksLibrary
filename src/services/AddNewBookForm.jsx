@@ -361,14 +361,22 @@ export default function AddNewBookForm({ onSuccess }) {
         )}
       </div>
 
-      <div className="flex items-center justify-end gap-3 mt-6">
-        <button type="button" onClick={() => {
-          // Очистка
-          setTitle(''); setAuthor(''); setYear(''); setDescription(''); setFile(null); setPreviewUrl(null); setSelectedGenres([]); setColorHue(''); setError(null);
-        }} className="px-4 py-2 border rounded">Очистити</button>
+      {/* Кнопки */}
+      <div className="flex items-center justify-end gap-3 mt-8 pt-6 border-t">
+        <button 
+          type="button" 
+          onClick={ClearFields}
+          className="px-6 py-2 border border-gray-300 rounded hover:bg-gray-50 transition-colors"
+        >
+          Очистити все
+        </button>
 
-        <button type="submit" disabled={loading} className="px-6 py-2 bg-blue-400 text-white rounded disabled:opacity-60">
-          {loading ? 'Збереження...' : 'Додати книгу'}
+        <button 
+          type="submit" 
+          disabled={loading} 
+          className="px-8 py-2 bg-amber-500 text-white rounded hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        >
+          {loading ? '⏳ Збереження...' : '✅ Додати книгу'}
         </button>
       </div>
     </form>
