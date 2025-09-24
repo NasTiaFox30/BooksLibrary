@@ -158,6 +158,20 @@ export default function AddNewBookForm({ onSuccess }) {
           <input value={year} onChange={(e) => setYear(e.target.value)} className="p-2 border rounded" />
         </label>
 
+        <label className="flex flex-col">
+          <span className="font-medium mb-1">Мова (необовязково - завмовчуванням 'Українська')</span>
+          <input value={language} onChange={(e) => setLanguage(e.target.value)} className="p-2 border rounded" />
+        </label>
+
+        <label className="flex flex-col">
+          <span className="font-medium mb-1">Кількість сторінок</span>
+          <input value={pages} onChange={(e) => setPages(e.target.value)} className="p-2 border rounded" />
+        </label>
+
+        <label className="flex flex-col">
+          <span className="font-medium mb-1">Видавництво</span>
+          <input value={publisher} onChange={(e) => setPublisher(e.target.value)} className="p-2 border rounded" />
+        </label>
 
         {/* Відображеня на сторінці */}
 
