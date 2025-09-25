@@ -230,7 +230,7 @@ export default function BookScreen({ book, onGoBack }) {
                   Моя думка
                 </h3>
                 <p className="text-gray-700 leading-relaxed italic pacifico-regular">
-                  "{book.opinion || 'Власник не залишив свою думку про книгу.'}"
+                  "{book.opinion || 'Власниця не залишила свою думку про книгу.'}"
                 </p>
                 <div className="mt-3 text-right text-sm ">
                   ~ Власниця
