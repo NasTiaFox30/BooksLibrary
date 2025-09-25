@@ -57,6 +57,12 @@ export default function App() {
     }
   };
 
+  // Authenticate
+  const handleAuthenticate = (user) => {
+    setCurrentUser(user);
+    setCurrentScreen('add-book');
+  };
+
   // Turn lights ON/OFF
   const handleLampClick = () => {
     setIsLightOn(prev => !prev);
@@ -67,7 +73,12 @@ export default function App() {
       case 'book':
         return <BookScreen book={selectedBook} onGoBack={handleGoHome} />;
       case 'add-book':
-        return <AddNewBookForm onGoBack={handleGoHome} />;
+        if (!currentUser) {
+          return <AuthScreen onAuthenticate={handleAuthenticate}/>;
+        }
+        return <AddNewBookForm onSuccess={handleGoHome} currentUser={currentUser} />;
+      case 'auth':
+        return <AuthScreen onAuthenticate={handleAuthenticate}/>;
       default:
         return (
           <HomeScreen 
