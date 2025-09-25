@@ -4,6 +4,7 @@ import { storage } from '../firebase.config';
 import { Tape } from '../components/Decor';
 import { getGenres } from '../services/booksService';
 import featherIcon from '/textures/decor/decor8.png';
+import characterIcon from '/textures/decor/decor9.png';
 import arrowIcon from '/textures/decor/arrow.svg';
 
 export default function BookScreen({ book, onGoBack }) {
@@ -147,11 +148,12 @@ export default function BookScreen({ book, onGoBack }) {
             </div>
 
               {/* Characters */}
-              <div className="mt-8">
+            <div className="mt-8">
                 <h3 className="text-xl font-bold text-amber-900 mb-4 flex items-center">
                   Персонажі книги
+                  <img src={characterIcon} alt="" className='h-10 w-10' />
                 </h3>
-                <ul className="space-y-2">
+                <ul className="grid grid-cols-2 space-y-2">
                   {characters.length > 0 ? (
                   characters.map((character, index) => (
                     <li key={index} className="flex items-start">
