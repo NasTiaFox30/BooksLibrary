@@ -3,7 +3,7 @@ import { getDownloadURL, ref } from 'firebase/storage';
 import { storage } from '../firebase.config';
 import { Tape } from '../components/Decor';
 import { getGenres } from '../services/booksService';
-import decor5 from '/textures/decor/decor8.png';
+import featherIcon from '/textures/decor/decor8.png';
 import arrowIcon from '/textures/decor/arrow.svg';
 
 export default function BookScreen({ book, onGoBack }) {
@@ -226,7 +226,7 @@ export default function BookScreen({ book, onGoBack }) {
             <div className="relative mt-12">
               <div className="bg-yellow-50 p-6 rounded-lg shadow-md relative">
                 <h3 className="text-xl font-bold mb-3 flex items-center text-amber-800">
-                  <img src={decor5} alt="" className='w-10 h-10 mr-2' />
+                  <img src={featherIcon} alt="" className='w-10 h-10 mr-2' />
                   Моя думка
                 </h3>
                 <p className="text-gray-700 leading-relaxed italic pacifico-regular">
