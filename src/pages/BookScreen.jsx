@@ -10,6 +10,7 @@ export default function BookScreen({ book, onGoBack }) {
   const [loading, setLoading] = useState(true);
   const [genreNames, setGenreNames] = useState([]);
   const [characters, setCharacters] = useState([]);
+  const [showCornerButton, setShowCornerButton] = useState(false);
 
   useEffect(() => {
     if (book) {
@@ -100,7 +101,10 @@ export default function BookScreen({ book, onGoBack }) {
         <div className="md:flex min-h-[600px]">
           
           {/* Left page */}
-          <div className="md:w-1/2 p-10 pl-20 relative">
+          <div className="md:w-1/2 p-10 pl-20 relative"
+              onMouseEnter={() => setShowCornerButton(true)}
+            onMouseLeave={() => setShowCornerButton(false)}
+          >
 
             {/* Top right page */}
             <div className="relative mb-8">
@@ -172,6 +176,36 @@ export default function BookScreen({ book, onGoBack }) {
                   <span className="font-semibold">Видавництво:</span> <span className='pacifico-regular'>{book.publisher || 'Невідомо'}</span>
                 </div>
               </div>
+            
+            {/* corner */}
+            <div
+              className={`absolute z-10 bottom-6 left-11 transition-all duration-300 ${showCornerButton ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+            >
+              <button
+                onClick={onGoBack}
+                className="relative w-20 h-20 shadow-xl transition-all duration-300 transform hover:scale-110 group"
+              > 
+                <div 
+                  className="absolute inset-0 bg-stone-300 border-1 rounded-bl-full"
+                  style={{
+                    backgroundImage: `url('/textures/paper-texture.png')`,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                  }}
+                ></div>
+                
+                <div className="relative z-10 w-full h-full flex items-start justify-end p-2">
+                  <svg 
+                    className="w-8 h-8 transform -rotate-135 group-hover:scale-110 transition-transform text-stone-700" 
+                    fill="currentColor" 
+                    viewBox="0 0 20 20"
+                  >
+                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+
           </div>
 
           {/* Right page */}
