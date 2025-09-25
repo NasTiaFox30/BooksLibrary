@@ -61,6 +61,19 @@ export default function AddNewBookForm({ onSuccess, currentUser }) {
       return [...prev, genreId];
     });
   };
+  const handleAddGenre = async () => {
+    const genreName = prompt('Введіть назву нового жанру:');
+    if (genreName && genreName.trim() !== '') {
+      try {
+        const newGenre = await addGenre({ name: genreName.trim() });
+        setGenresList(prev => [...prev, newGenre]);
+        setSelectedGenres(prev => [...prev, newGenre.id]);
+      } catch (err) {
+        console.error('Не вдалося додати жанр', err);
+        alert('Не вдалося додати жанр. Спробуй ще раз.');
+      }
+    }
+  };
 
   const validate = () => {
     if (!title.trim()) return 'Вкажіть назву книги.';
