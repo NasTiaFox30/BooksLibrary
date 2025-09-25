@@ -11,7 +11,7 @@ export default function Shelf({ shelf, shelfIndex, books, onBookClick }) {
         {/* Shelf */}
         {/* Genre Label - Fixed size and centered */}
         <div
-          className="absolute pacifico-regular z-1 -top-4 w-35 h-18 flex items-center justify-center text-center text-black text-xl font-semibold px-2 py-1"
+          className="absolute pacifico-regular z-50 -top-6 w-35 h-18 flex items-center justify-center text-center text-black text-xl font-semibold px-2 py-1"
           style={{
             backgroundImage: 'url(textures/wood-sign.png)',
             backgroundSize: 'cover',
