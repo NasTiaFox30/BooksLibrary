@@ -150,8 +150,8 @@ export default function BookScreen({ book, onGoBack }) {
               {/* Characters */}
             <div className="mt-8">
                 <h3 className="text-xl font-bold text-amber-900 mb-4 flex items-center">
-                  Персонажі книги
-                  <img src={characterIcon} alt="" className='h-10 w-10' />
+                  <img src={characterIcon} alt="" className='h-12 w-12' />
+                  Персонажі книги:
                 </h3>
                 <ul className="grid grid-cols-2 space-y-2">
                   {characters.length > 0 ? (
