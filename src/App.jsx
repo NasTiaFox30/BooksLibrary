@@ -51,7 +51,7 @@ export default function App() {
     setLastClickTime(currentTime);
 
     if (titleClicked && clickCount >= 2 && currentTime - lastClickTime < 3000) {
-      setCurrentScreen('add-book');
+      setCurrentScreen('auth');
       setClickCount(0);
       setTitleClicked(false);
     }
