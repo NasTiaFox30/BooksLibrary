@@ -102,7 +102,7 @@ export default function BookScreen({ book, onGoBack }) {
         <div className="md:flex min-h-[600px]">
           
           {/* Left page */}
-          <div className="md:w-1/2 p-10 pl-20 relative"
+          <div className="md:w-1/2 h-210 p-10 pl-20 relative"
               onMouseEnter={() => setShowCornerButton(true)}
             onMouseLeave={() => setShowCornerButton(false)}
           >
@@ -210,7 +210,7 @@ export default function BookScreen({ book, onGoBack }) {
           </div>
 
           {/* Right page */}
-          <div className="md:w-1/2 p-10 pr-20 relative">
+          <div className="md:w-1/2 h-210 p-10 pr-20 relative">
 
             {/* Description */}
             <div className="mb-8">
