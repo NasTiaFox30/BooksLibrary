@@ -152,6 +152,8 @@ export default function AddNewBookForm({ onSuccess, currentUser }) {
           height: selectedSizeData.height
         } : { id: 'classic', width: 8, height: 26 },
         genres: selectedGenres,
+        addedBy: currentUser.name,
+        addedById: currentUser.username,
         createdAt: new Date()
       };
 
