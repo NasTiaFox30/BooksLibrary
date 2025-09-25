@@ -4,6 +4,7 @@ import { storage } from '../firebase.config';
 import { Tape } from '../components/Decor';
 import { getGenres } from '../services/booksService';
 import decor5 from '/textures/decor/decor8.png';
+import arrowIcon from '/textures/decor/arrow.svg';
 
 export default function BookScreen({ book, onGoBack }) {
   const [imageUrl, setImageUrl] = useState(null);
@@ -154,7 +155,7 @@ export default function BookScreen({ book, onGoBack }) {
                   {characters.length > 0 ? (
                   characters.map((character, index) => (
                     <li key={index} className="flex items-start">
-                    <span className="text-amber-600 mr-2">-></span>
+                    <img src={ arrowIcon } alt="" className='mr-2 w-3 rotate-135' />
                     <span className="text-gray-700 pacifico-regular">{character}</span>
                     </li>
                   ))
