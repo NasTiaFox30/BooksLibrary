@@ -67,11 +67,11 @@ export default function BookPreview({ book, isOpen, onClose, onOpenBook }) {
             >
               <button
                 onClick={handleOpenBook}
-                className="relative w-20 h-20 shadow-xl transition-all duration-300 transform hover:scale-110 group"
+                className="relative w-20 h-20 transition-all duration-300 transform hover:scale-110 group"
                 title="Відкрити книгу для читання"
               > 
                 <div 
-                  className="absolute inset-0 bg-stone-300 rounded-br-full"
+                  className="absolute inset-0 border-1 shadow-xl bg-stone-300 rounded-br-full"
                   style={{
                     backgroundImage: `url('/textures/paper-texture.png')`,
                     backgroundSize: 'cover',
