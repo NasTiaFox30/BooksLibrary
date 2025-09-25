@@ -415,6 +415,13 @@ export default function AddNewBookForm({ onSuccess, currentUser }) {
             </button>
           ))}
         </div>
+        <button
+          type="button"
+          onClick={handleAddGenre}
+          className="mt-2 px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors"
+        >
+          ➕ Додати новий жанр
+        </button>
       </div>
 
       {/* Завантаження зображення */}
