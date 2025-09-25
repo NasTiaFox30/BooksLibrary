@@ -234,9 +234,6 @@ export default function BookScreen({ book, onGoBack }) {
                 <p className="text-gray-700 leading-relaxed italic pacifico-regular">
                   "{book.opinion || 'Власниця не залишила свою думку про книгу.'}"
                 </p>
-                <div className="mt-3 text-right text-sm ">
-                  ~ Власниця
-                </div>
               </div>
 
               <Tape degree="45" size="60" top={-20} right={-20}/> 
