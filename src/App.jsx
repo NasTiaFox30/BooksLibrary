@@ -22,6 +22,7 @@ export default function App() {
     setSelectedBook(null);
     setClickCount(0);
     setTitleClicked(false);
+    setCurrentUser(null);
   };
 
   // Book
@@ -106,6 +107,8 @@ export default function App() {
           currentScreen={currentScreen}
           onNavigate={setCurrentScreen}
           onTitleClick={handleTitleClick}
+          currentUser={currentUser}
+          onLogout={() => setCurrentUser(null)}
         />
         
         {renderScreen()}
