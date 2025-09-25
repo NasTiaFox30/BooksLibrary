@@ -41,6 +41,8 @@ export default function Bookshelf({ shelves, books, onBookClick, onLampClick, on
           onClick={onCatClick}
           title="Мяу 💤"
         />
+        <img src="/textures/decor/sleep-anim.gif" alt=""
+          className="absolute right-60 top-5 h-25 w-auto drop-shadow-lg select-none" />
       </div>
       <div className='h-8 rounded-l border-2 border-b-0 mx-10'
         style={{ backgroundColor: '#d4d4d4' }}></div>
