@@ -40,3 +40,15 @@ export const getGenres = async () => {
     return [];
   }
 };
+
+// Add a New genre
+export const addGenre = async (genreData) => {
+  try {
+    const docRef = await addDoc(collection(db, "genres"), genreData);
+    return { id: docRef.id, ...genreData };
+  }
+  catch (error) {
+    console.error("Помилка при додаванні жанру:", error);
+    throw new Error("Не вдалося додати жанр. Спробуйте ще раз.");
+  }
+};
