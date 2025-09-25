@@ -130,7 +130,7 @@ export default function BookScreen({ book, onGoBack }) {
               </div>
 
               {/* Main Info */}
-              <div className="mt-4 ml-4 inline-block align-top">
+              <div className="md:w-1/2 mt-4 ml-9 inline-block align-top">
                 <h1 className="text-2xl font-bold mb-2 max-w-xs">{book.title}</h1>
                 <div className="space-y-1">
                   <p className="text-lg text-gray-700">
