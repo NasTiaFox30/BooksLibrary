@@ -13,7 +13,7 @@ const BOOK_SIZES = [
   { id: 'large', name: '📙 Велика', width: 9, height: 28, label: '28x9' }
 ];
 
-export default function AddNewBookForm({ onSuccess }) {
+export default function AddNewBookForm({ onSuccess, currentUser }) {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [year, setYear] = useState('');
