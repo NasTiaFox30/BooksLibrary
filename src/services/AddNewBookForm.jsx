@@ -89,6 +89,13 @@ export default function AddNewBookForm({ onSuccess, currentUser }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
+
+    // Check user
+    if (!currentUser) {
+      setError('Потрібна авторизація для додавання книг');
+      return;
+    }
+    
     const validationError = validate();
     if (validationError) {
       setError(validationError);
