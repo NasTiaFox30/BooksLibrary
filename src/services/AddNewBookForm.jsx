@@ -36,16 +36,11 @@ export default function AddNewBookForm({ onSuccess, currentUser }) {
 
   useEffect(() => {
     // Завантажуємо жанри з Firebase
-    const loadGenres = async () => {
-      try {
-        const snapshot = await getDocs(collection(db, 'genres'));
-        const genres = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setGenresList(genres);
-      } catch (err) {
-        console.error('Не вдалося завантажити жанри', err);
-      }
+    const fetchGenres = async () => {
+      const genres = await getGenres();
+      setGenresList(genres);
     };
-    loadGenres();
+    fetchGenres();
   }, []);
 
   useEffect(() => {
