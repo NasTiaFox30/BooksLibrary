@@ -29,29 +29,43 @@ export function useTypewriter(text, speed = 50) {
 
 export function useTypewriterSound() {
   const audioRef = useRef(null);
-  const audioContextRef = useRef(null);
-  const sourceNodesRef = useRef([]);
 
-  //download audio
   useEffect(() => {
-    audioRef.current = new Audio('/sounds/typewriter-sound.mp3');
-    audioRef.current.preload = 'auto';
-    
-    // Create AudioContext 
-    try {
-      audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
-    } catch (error) {
-      console.log('Web Audio API not supported');
-    }
-
-    return () => {
-      if (sourceNodesRef.current.length > 0) {
-        sourceNodesRef.current.forEach(source => {
-          if (source) source.stop();
-        });
-      }
-    };
+    const audio = new Audio('/sounds/typewriter-sound.mp3');
+    audio.preload = 'auto';
+    audioRef.current = audio;
   }, []);
 
-  return ;
+  const playSound = () => {
+    const audio = audioRef.current;
+
+    if (!audio) {
+      console.log('Аудіо не завантажено.');
+      return;
+    }
+
+    try {
+      const audioClone = audio.cloneNode();
+
+      const playbackRate = 0.8 + Math.random() * 0.4;
+      audioClone.playbackRate = playbackRate;
+      audioClone.volume = 0.4 + Math.random() * 0.2;
+
+      audioClone.onended = () => {
+        // У більшості сучасних браузерів це допомагає GC.
+        audioClone.src = '';
+        audioClone.remove();
+      };
+
+      audioClone.play().catch(error => {
+        // Це часто буває, якщо користувач ще не взаємодіяв зі сторінкою
+        console.warn('Помилка відтворення аудіо (ймовірно, через політику авто-відтворення):', error);
+      });
+
+    } catch (error) {
+      console.error('Помилка під час відтворення звуку:', error);
+    }
+  };
+
+  return playSound;
 }
