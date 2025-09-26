@@ -75,15 +75,17 @@ export default function App() {
 
   const renderScreen = () => {
     switch (currentScreen) {
+      case 'collection':
+        return <CollectionScreen onBookClick={handleOpenBook} onGoBack={handleGoHome} />;
       case 'book':
         return <BookScreen book={selectedBook} onGoBack={handleGoHome} />;
       case 'add-book':
         if (!currentUser) {
-          return <AuthScreen onAuthenticate={handleAuthenticate}/>;
+          return <AuthScreen onAuthenticate={handleAuthenticate} onGoBack={handleGoHome} />;
         }
         return <AddNewBookForm onSuccess={handleGoHome} currentUser={currentUser} />;
       case 'auth':
-        return <AuthScreen onAuthenticate={handleAuthenticate}/>;
+        return <AuthScreen onAuthenticate={handleAuthenticate} onGoBack={handleGoHome} />;
       default:
         return (
           <HomeScreen 
