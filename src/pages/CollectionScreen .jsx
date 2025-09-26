@@ -12,8 +12,8 @@ export default function CollectionScreen({ onBookClick }) {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedGenres, setSelectedGenres] = useState([]);
-  const [sortBy, setSortBy] = useState('title');
-  const [sortOrder, setSortOrder] = useState('asc');
+  const [titleSort, setTitleSort] = useState('asc');
+  const [authorSort, setAuthorSort] = useState('none');
   const [currentPage, setCurrentPage] = useState(1);
   const [booksPerPage] = useState(12);
   const [showFilters, setShowFilters] = useState(false);
