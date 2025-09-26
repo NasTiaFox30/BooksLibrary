@@ -15,6 +15,16 @@ export default function Bookshelf({ shelves, books, onBookClick, onLampClick, on
           backgroundPosition: 'center',
         }}
       >
+        {/* Кнопка переходу до колекції */}
+        <div className="absolute left-50 right-50 bottom-8 text-center mt-4">
+          <button 
+            onClick={onOpenCollection}
+            className=" text-black x-6 py-2 transition-colors"
+          >
+            Переглянути повну колекцію
+          </button>
+        </div>
+        
         {/* Lamp */ }
           <img
             src={isLightOn ? "/textures/oillamp-on.png" : "/textures/oillamp-off.png"}
