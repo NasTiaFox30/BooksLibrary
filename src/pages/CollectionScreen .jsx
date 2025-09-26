@@ -223,12 +223,14 @@ export default function CollectionScreen({ onBookClick }) {
         {/* Результати пошуку */}
         {filteredBooks.length === 0 ? (
           <div className="text-center py-12">
-            <div className="flex item-center justify-center mb-4 h-30"><img src={ quetionMark } /></div>
-            <h3 className="text-xl font-semibold text-gray-700 mb-2">Книги не знайдено</h3>
-            <p className="text-gray-600 mb-4">Спробуйте змінити критерії пошуку або фільтри</p>
+            <div className="flex items-center justify-center mb-6 h-32">
+              <img src={quetionMark} alt="Not found" className="h-full opacity-80" />
+            </div>
+            <h3 className="text-3xl font-semibold text-gray-700 mb-3">Книги не знайдено</h3>
+            <p className="text-amber-700 mb-6 text-lg">Спробуйте змінити критерії пошуку або фільтри</p>
             <button
               onClick={clearFilters}
-              className="bg-amber-700 hover:bg-amber-900 text-white px-6 py-2 rounded-lg transition-colors"
+              className="bg-stone-600 hover:bg-stone-500 text-white px-8 py-3 rounded-lg transition-all cursor-pointer duration-200 hover:shadow-lg"
             >
               Показати всі книги
             </button>
