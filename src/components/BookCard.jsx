@@ -12,7 +12,7 @@ export default function BookCard({ book, onClick, genres }) {
   // Отримуємо розміри книги
   const bookSize = book.size || { width: 8, height: 26 };
   
-  const cardWidth = bookSize.width * 10;
+  const cardWidth = bookSize.width * 9;
   const cardHeight = bookSize.height * 6;
 
   // Отримуємо назви жанрів
