@@ -93,6 +93,7 @@ export default function App() {
             onTitleClick={handleTitleClick}
             onCatClick={handleCatClick}
             onLampClick={handleLampClick}
+            onOpenCollection={handleOpenCollection}
             isLightOn={isLightOn}
           />
         );
