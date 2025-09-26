@@ -118,8 +118,8 @@ export default function CollectionScreen({ onBookClick }) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600 mx-auto mb-4"></div>
-          <div className="text-amber-900 text-xl">Завантаження колекції...</div>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-amber-600 mx-auto mb-6"></div>
+          <div className="courier-prime-bold text-stone-800 text-xl">Завантаження колекції...</div>
         </div>
       </div>
     );
