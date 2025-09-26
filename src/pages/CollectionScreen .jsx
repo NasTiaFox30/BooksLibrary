@@ -17,6 +17,7 @@ export default function CollectionScreen({ onBookClick }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [booksPerPage] = useState(12);
   const [showFilters, setShowFilters] = useState(false);
+  const [trashbinActive, setTrashbinActive] = useState(false);
 
   // Завантаження даних
   useEffect(() => {
