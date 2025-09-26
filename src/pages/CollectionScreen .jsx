@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import { getBooks, getGenres } from '../services/booksService';
 import BookCard from '../components/BookCard';
-import magnifyingglass from '/textures/decor/decor12.png';
-import typewriter from '/textures/decor/typwriter.gif';
+import TypewriterSearch from '../components/TypewriterSearch.jsx';
 import quetionMark from '/textures/question-mark.png';
+import trashbinTexture from '/textures/trashbin-texture.png';
+import noteTextureClose from '/textures/note-texture-close.png';
+import noteTextureOpen from '/textures/note-texture-open.png';
+import paperPeaceTexture from '/textures/paper-peace.png';
 
 export default function CollectionScreen({ onBookClick }) {
   const [allBooks, setAllBooks] = useState([]);
