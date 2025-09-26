@@ -5,6 +5,7 @@ import HomeScreen from "./pages/HomeScreen";
 import BookScreen from "./pages/BookScreen";
 import AddNewBookForm from "./services/AddNewBookForm";
 import AuthScreen from "./pages/AuthScreen";
+import CollectionScreen from "./pages/CollectionScreen ";
 import ParallaxDecorations from "./components/ParallaxDecorations";
 import LightOverlay from "./components/LightOverlay";
 
