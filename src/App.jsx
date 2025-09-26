@@ -25,6 +25,10 @@ export default function App() {
     setCurrentUser(null);
   };
 
+  const handleOpenCollection = () => {
+    setCurrentScreen('collection');
+  };
+
   // Book
   const handleOpenBook = (book) => {
     setSelectedBook(book);
