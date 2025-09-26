@@ -112,3 +112,54 @@
             rgba(210, 186, 99, 0.6) 30%,
             transparent 70%) !important;
 }
+
+/* anim typewriter */
+@keyframes leverStrike {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(-50%) rotate(30deg);
+    }
+
+    100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+}
+
+.lever-animate {
+    animation: leverStrike 0.2s ease-in-out;
+}
+
+/* anim cursor */
+@keyframes typewriter-cursor {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.typewriter-cursor {
+    animation: typewriter-cursor 1s infinite;
+    background: #2d3748;
+}
+
+/* anim book  */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
