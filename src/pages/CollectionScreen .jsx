@@ -148,7 +148,7 @@ export default function CollectionScreen({ onBookClick }) {
     <div className="min-h-screen  py-8">
       <div className="max-w-7xl mx-auto px-4">
 
-        <div className="flex flex-col lg:flex-row ">
+        <div className="flex flex-col lg:flex-row items-center border-b-4 border-stone-400 mb-10">
           {/* Панель пошуку */}
           <div className="flex-1 md:w-1/2 flex justify-center mb-8">
             <TypewriterSearch
