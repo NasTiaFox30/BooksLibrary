@@ -265,16 +265,32 @@ export default function CollectionScreen({ onBookClick }) {
                         <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-amber-400 transform -translate-x-1/2"></div>
                       </div>
                       
-                      <div className="absolute bottom-4 left-0 right-0 flex justify-between items-center px-6">
-                        
+                      {/*  pages */}
+                      <div className="absolute bottom-10 right-0 left-0 flex justify-center items-center px-6">
                         <div className="flex items-center justify-center space-x-4">
-                          <button className="pacifico-regular text-amber-600 hover:text-amber-800 transition-colors text-sm">
+                          <button 
+                            onClick={() => setCurrentGenrePage(prev => Math.max(prev - 1, 0))}
+                            disabled={currentGenrePage === 0}
+                            className={`pacifico-regular transition-colors text-sm ${
+                              currentGenrePage === 0 
+                                ? 'text-amber-300 cursor-not-allowed' 
+                                : 'text-amber-600 hover:text-amber-800'
+                            }`}
+                          >
                             ← Попередня
                           </button>
-                          <span className="pacifico-regular text-amber-700 text-sm">
-                            1/{Math.ceil(genres.length / 8)}
+                          <span className="pacifico-regular bg-stone-400 rounded-md p-1 text-amber-700 text-sm">
+                            {currentGenrePage + 1}/{totalGenrePages}
                           </span>
-                          <button className="pacifico-regular text-amber-600 hover:text-amber-800 transition-colors text-sm">
+                          <button 
+                            onClick={() => setCurrentGenrePage(prev => Math.min(prev + 1, totalGenrePages - 1))}
+                            disabled={currentGenrePage >= totalGenrePages - 1}
+                            className={`pacifico-regular transition-colors text-sm ${
+                              currentGenrePage >= totalGenrePages - 1
+                                ? 'text-amber-300 cursor-not-allowed' 
+                                : 'text-amber-600 hover:text-amber-800'
+                            }`}
+                          >
                             Наступна →
                           </button>
                         </div>
