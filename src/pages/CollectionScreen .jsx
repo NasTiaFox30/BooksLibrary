@@ -306,7 +306,7 @@ export default function CollectionScreen({ onBookClick }) {
                   <img 
                     src={noteTextureClose} 
                     alt="Фільтри" 
-                    className="h-40 cursor-pointer"
+                    className="h-70 cursor-pointer"
                   />
                   <div className="absolute -top-1 -right-1 w-5 h-5 bg-amber-500 rounded-full text-white text-xs flex items-center justify-center">
                     {selectedGenres.length}
