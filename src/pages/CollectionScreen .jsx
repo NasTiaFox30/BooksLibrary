@@ -18,6 +18,7 @@ export default function CollectionScreen({ onBookClick }) {
   const [titleSort, setTitleSort] = useState('asc');
   const [authorSort, setAuthorSort] = useState('none');
   const [currentPage, setCurrentPage] = useState(1);
+  const [currentGenrePage, setCurrentGenrePage] = useState(0);
   const [booksPerPage] = useState(12);
   const [showFilters, setShowFilters] = useState(false);
   const [trashbinActive, setTrashbinActive] = useState(false);
@@ -214,18 +215,6 @@ export default function CollectionScreen({ onBookClick }) {
                             const startIndex = pageIndex * itemsPerPage;
                             const endIndex = startIndex + itemsPerPage;
                             const pageGenres = genres.slice(startIndex, endIndex);
-                            
-                            if (startIndex >= genres.length) {
-                              return (
-                                <div key={actualPage} className="flex-1 min-w-0">
-                                  <div className="grid grid-cols-1 gap-2 h-full">
-                                    {Array.from({ length: itemsPerGenrePage }).map((_, index) => (
-                                      <div key={`empty-${index}`} className="h-6 opacity-0">●</div>
-                                    ))}
-                                  </div>
-                                </div>
-                              );
-                            }
                             
                             return (
                               <div key={pageIndex} className="flex-1 min-w-0">
