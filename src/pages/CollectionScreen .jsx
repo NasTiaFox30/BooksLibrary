@@ -73,27 +73,29 @@ export default function CollectionScreen({ onBookClick }) {
     setCurrentPage(1); // Скидаємо на першу сторінку при зміні фільтрів
   }, [allBooks, searchTerm, selectedGenres, sortBy, sortOrder]);
 
-  // Функція сортування
-  const sortBooks = (books, field, order) => {
+  const sortBooks = (books) => {
     return [...books].sort((a, b) => {
-      let aValue = a[field] || '';
-      let bValue = b[field] || '';
-
-      // Для числових полів
-      if (field === 'year' || field === 'pages') {
-        aValue = aValue || 0;
-        bValue = bValue || 0;
+      if (titleSort !== 'none') {
+        const aTitle = (a.title || '').toLowerCase();
+        const bTitle = (b.title || '').toLowerCase();
+        if (aTitle !== bTitle) {
+          return titleSort === 'asc' 
+            ? aTitle.localeCompare(bTitle)
+            : bTitle.localeCompare(aTitle);
+        }
       }
 
-      // Для текстових полів
-      if (typeof aValue === 'string') aValue = aValue.toLowerCase();
-      if (typeof bValue === 'string') bValue = bValue.toLowerCase();
-
-      if (order === 'asc') {
-        return aValue < bValue ? -1 : aValue > bValue ? 1 : 0;
-      } else {
-        return aValue > bValue ? -1 : aValue < bValue ? 1 : 0;
+      if (authorSort !== 'none') {
+        const aAuthor = (a.author || '').toLowerCase();
+        const bAuthor = (b.author || '').toLowerCase();
+        if (aAuthor !== bAuthor) {
+          return authorSort === 'asc'
+            ? aAuthor.localeCompare(bAuthor)
+            : bAuthor.localeCompare(aAuthor);
+        }
       }
+
+      return 0;
     });
   };
 
