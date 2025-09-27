@@ -172,9 +172,13 @@ export default function CollectionScreen({ onBookClick }) {
               
               <button
                 onClick={clearFilters}
-                className="flex items-center gap-2 bg-red-100 hover:bg-red-200 text-red-700 px-4 py-2 rounded-lg transition-colors"
+                className={`relative transition-all duration-500 ${trashbinActive ? 'transform scale-110 rotate-12' : ''}`}
+                disabled={trashbinActive}
               >
-                🗑️ Очистити
+                <img 
+                  src={trashbinTexture}
+                  className="w-16 cursor-pointer hover:scale-110 transition-transform"
+                />
               </button>
 
               <select
