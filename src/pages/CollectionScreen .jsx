@@ -66,9 +66,7 @@ export default function CollectionScreen({ onBookClick }) {
       );
     }
 
-    // Сортування
-    result = sortBooks(result, sortBy, sortOrder);
-
+    result = sortBooks(result);
     setFilteredBooks(result);
     setCurrentPage(1);
   }, [allBooks, searchTerm, selectedGenres, titleSort, authorSort]);
