@@ -182,7 +182,7 @@ export default function CollectionScreen({ onBookClick }) {
               <Tape degree={35} size={60} top={-20} right={-10} />
             </div>
             
-            <div className="flex gap-5 justify-center mb-6">
+            <div className="flex gap-5 justify-center items-end mb-6">
               {/* Корзина */}
               <button
                 onClick={clearFilters}
