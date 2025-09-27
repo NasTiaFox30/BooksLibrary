@@ -97,7 +97,7 @@ export default function CollectionScreen({ onBookClick }) {
     });
   };
 
-  // Пагінація
+  // page pagination - Books
   const indexOfLastBook = currentPage * booksPerPage;
   const indexOfFirstBook = indexOfLastBook - booksPerPage;
   const currentBooks = filteredBooks.slice(indexOfFirstBook, indexOfLastBook);
