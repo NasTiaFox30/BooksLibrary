@@ -181,24 +181,111 @@ export default function CollectionScreen({ onBookClick }) {
                 />
               </button>
 
-              <select
-                value={`${sortBy}-${sortOrder}`}
-                onChange={(e) => {
-                  const [field, order] = e.target.value.split('-');
-                  setSortBy(field);
-                  setSortOrder(order);
-                }}
-                className="bg-white border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:border-amber-500"
-              >
-                <option value="title-asc">Назва А-Я</option>
-                <option value="title-desc">Назва Я-А</option>
-                <option value="author-asc">Автор А-Я</option>
-                <option value="author-desc">Автор Я-А</option>
-                <option value="year-desc">Новіші</option>
-                <option value="year-asc">Старіші</option>
-                <option value="pages-desc">Об'ємніші</option>
-                <option value="pages-asc">Коротші</option>
-              </select>
+              {/* Блокнот фільтрів */}
+              {showFilters ? (
+                <div className="flex justify-center mb-8">
+                  <div className="relative w-110 h-70"
+                    style={{
+                      backgroundImage: `url(${noteTextureOpen})`,
+                      backgroundSize: 'cover',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundPosition: 'top',
+                    }}
+                  >
+                    <div className="absolute inset-0 items-center px-10 p-7">
+                      <button
+                        onClick={() => setShowFilters(false)}
+                        className="absolute top-4 right-4 w-4 h-4 bg-stone-500 text-white rounded-full flex items-center justify-center hover:bg-stone-600 transition-colors z-10"
+                      >×</button>
+                      
+                      <div className="relative h-5/6">
+                        <div className="flex space-x-6 h-full">
+                          {[0, 1].map(pageIndex => {
+                            const itemsPerPage = 6;
+                            const startIndex = pageIndex * itemsPerPage;
+                            const endIndex = startIndex + itemsPerPage;
+                            const pageGenres = genres.slice(startIndex, endIndex);
+                            
+                            return (
+                              <div key={pageIndex} className="flex-1 min-w-0">
+                                <div className="grid grid-cols-1 gap-2 h-full">
+                                  {pageGenres.map(genre => (
+                                    <label key={genre.id} className="flex items-center space-x-3 cursor-pointer group py-1">
+                                      <input
+                                        type="checkbox"
+                                        checked={selectedGenres.includes(genre.id)}
+                                        onChange={() => handleGenreToggle(genre.id)}
+                                        className="hidden"
+                                      />
+                                      <div className={`relative w-5 h-5 border-2 rounded transition-all duration-200 group-hover:scale-110 ${
+                                        selectedGenres.includes(genre.id)
+                                          ? 'bg-amber-600 border-amber-700 shadow-lg'
+                                          : 'bg-white border-amber-300 group-hover:border-amber-500'
+                                      }`}>
+                                        {selectedGenres.includes(genre.id) && (
+                                          <div className="absolute inset-0 flex items-center justify-center">
+                                            <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                            </svg>
+                                          </div>
+                                        )}
+                                      </div>
+                                      <span className="pacifico-regular text-amber-800 group-hover:text-amber-900 transition-colors text-sm">
+                                        {genre.name}
+                                      </span>
+                                    </label>
+                                  ))}
+                                  
+                                  {/* Пусті рядки для вирівнювання */}
+                                  {pageGenres.length < itemsPerPage && 
+                                    Array.from({ length: itemsPerPage - pageGenres.length }).map((_, index) => (
+                                      <div key={`empty-${pageIndex}-${index}`} className="h-6 opacity-0">
+                                        ●
+                                      </div>
+                                    ))
+                                  }
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                        
+                        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-amber-400 transform -translate-x-1/2"></div>
+                      </div>
+                      
+                      <div className="absolute bottom-4 left-0 right-0 flex justify-between items-center px-6">
+                        
+                        <div className="flex items-center justify-center space-x-4">
+                          <button className="pacifico-regular text-amber-600 hover:text-amber-800 transition-colors text-sm">
+                            ← Попередня
+                          </button>
+                          <span className="pacifico-regular text-amber-700 text-sm">
+                            1/{Math.ceil(genres.length / 8)}
+                          </span>
+                          <button className="pacifico-regular text-amber-600 hover:text-amber-800 transition-colors text-sm">
+                            Наступна →
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <button
+                  onClick={() => setShowFilters(true)}
+                  className="relative transition-transform hover:scale-105"
+                >
+                  <img 
+                    src={noteTextureClose} 
+                    alt="Фільтри" 
+                    className="h-40 cursor-pointer"
+                  />
+                  <div className="absolute -top-1 -right-1 w-5 h-5 bg-amber-500 rounded-full text-white text-xs flex items-center justify-center">
+                    {selectedGenres.length}
+                  </div>
+                </button>
+              )}
+
             </div>
           </div>
 
