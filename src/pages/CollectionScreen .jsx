@@ -179,6 +179,7 @@ export default function CollectionScreen({ onBookClick }) {
                 Знайдено книг: <span className="font-bold">{filteredBooks.length}</span> | 
                 Сторінка: <span className="font-bold">{currentPage}</span> з <span className="font-bold">{totalPages}</span>
               </div>
+              <Tape degree={35} size={60} top={-20} right={-10} />
             </div>
             
             <div className="flex gap-5 justify-center mb-6">
