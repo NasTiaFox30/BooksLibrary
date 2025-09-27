@@ -183,8 +183,8 @@ export default function CollectionScreen({ onBookClick }) {
 
               {/* Блокнот фільтрів */}
               {showFilters ? (
-                <div className="flex justify-center mb-8">
-                  <div className="relative w-110 h-70"
+                <div className="relative w-full max-w-4xl mx-4">
+                  <div className="relative w-110 h-90"
                     style={{
                       backgroundImage: `url(${noteTextureOpen})`,
                       backgroundSize: 'cover',
@@ -192,7 +192,7 @@ export default function CollectionScreen({ onBookClick }) {
                       backgroundPosition: 'top',
                     }}
                   >
-                    <div className="absolute inset-0 items-center px-10 p-7">
+                    <div className="absolute inset-0 items-center px-10 p-7 max-h-70">
                       <button
                         onClick={() => setShowFilters(false)}
                         className="absolute top-4 right-4 w-4 h-4 bg-stone-500 text-white rounded-full flex items-center justify-center hover:bg-stone-600 transition-colors z-10"
