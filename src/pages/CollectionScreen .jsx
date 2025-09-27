@@ -129,11 +129,7 @@ export default function CollectionScreen({ onBookClick }) {
   };
 
   const toggleAuthorSort = () => {
-    setAuthorSort(prev => {
-      if (prev === 'none') return 'asc';
-      if (prev === 'asc') return 'desc';
-      return 'none';
-    });
+    setAuthorSort(prev => prev === 'asc' ? 'desc' : 'asc');
     setTitleSort('none');
   };
 
