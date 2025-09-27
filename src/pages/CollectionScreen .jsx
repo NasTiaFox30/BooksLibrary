@@ -145,7 +145,7 @@ export default function CollectionScreen({ onBookClick }) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-amber-600 mx-auto mb-6"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-stone-600 mx-auto mb-6"></div>
           <div className="courier-prime-bold text-stone-800 text-xl">Завантаження колекції...</div>
         </div>
       </div>
@@ -245,8 +245,8 @@ export default function CollectionScreen({ onBookClick }) {
                                       />
                                       <div className={`relative w-5 h-5 border-2 rounded transition-all duration-200 group-hover:scale-110 ${
                                         selectedGenres.includes(genre.id)
-                                          ? 'bg-amber-600 border-amber-700 shadow-lg'
-                                          : 'bg-white border-amber-300 group-hover:border-amber-500'
+                                          ? 'bg-stone-600 border-stone-700 shadow-lg'
+                                          : 'bg-white border-stone-300 group-hover:border-stone-500'
                                       }`}>
                                         {selectedGenres.includes(genre.id) && (
                                           <div className="absolute inset-0 flex items-center justify-center">
@@ -256,7 +256,7 @@ export default function CollectionScreen({ onBookClick }) {
                                           </div>
                                         )}
                                       </div>
-                                      <span className="pacifico-regular text-amber-800 group-hover:text-amber-900 transition-colors text-sm">
+                                      <span className="pacifico-regular text-stone-800 group-hover:text-stone-900 transition-colors text-sm">
                                         {genre.name}
                                       </span>
                                     </label>
@@ -273,7 +273,7 @@ export default function CollectionScreen({ onBookClick }) {
                           })}
                         </div>
                         
-                        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-amber-400 transform -translate-x-1/2"></div>
+                        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-stone-400 transform -translate-x-1/2"></div>
                       </div>
                       
                       {/*  pages */}
@@ -284,13 +284,13 @@ export default function CollectionScreen({ onBookClick }) {
                             disabled={currentGenrePage === 0}
                             className={`pacifico-regular transition-colors text-sm ${
                               currentGenrePage === 0 
-                                ? 'text-amber-300 cursor-not-allowed' 
-                                : 'text-amber-600 hover:text-amber-800'
+                                ? 'text-stone-300 cursor-not-allowed' 
+                                : 'text-stone-600 hover:text-stone-800'
                             }`}
                           >
                             ← Попередня
                           </button>
-                          <span className="pacifico-regular bg-stone-400 rounded-md p-1 text-amber-700 text-sm">
+                          <span className="pacifico-regular bg-stone-400 rounded-md p-1 text-stone-700 text-sm">
                             {currentGenrePage + 1}/{totalGenrePages}
                           </span>
                           <button 
@@ -298,8 +298,8 @@ export default function CollectionScreen({ onBookClick }) {
                             disabled={currentGenrePage >= totalGenrePages - 1}
                             className={`pacifico-regular transition-colors text-sm ${
                               currentGenrePage >= totalGenrePages - 1
-                                ? 'text-amber-300 cursor-not-allowed' 
-                                : 'text-amber-600 hover:text-amber-800'
+                                ? 'text-stone-300 cursor-not-allowed' 
+                                : 'text-stone-600 hover:text-stone-800'
                             }`}
                           >
                             Наступна →
@@ -319,7 +319,7 @@ export default function CollectionScreen({ onBookClick }) {
                     alt="Фільтри" 
                     className="h-70 cursor-pointer"
                   />
-                  <div className="absolute -top-1 -right-1 w-5 h-5 bg-amber-500 rounded-full text-white text-xs flex items-center justify-center">
+                  <div className="absolute -top-1 -right-1 w-5 h-5 bg-stone-500 rounded-full text-white text-xs flex items-center justify-center">
                     {selectedGenres.length}
                   </div>
                 </button>
@@ -398,7 +398,7 @@ export default function CollectionScreen({ onBookClick }) {
               <img src={quetionMark} alt="Not found" className="h-full opacity-80" />
             </div>
             <h3 className="text-3xl font-semibold text-gray-700 mb-3">Книги не знайдено</h3>
-            <p className="text-amber-700 mb-6 text-lg">Спробуйте змінити критерії пошуку або фільтри</p>
+            <p className="text-stone-700 mb-6 text-lg">Спробуйте змінити критерії пошуку або фільтри</p>
             <button
               onClick={clearFilters}
               className="bg-stone-600 hover:bg-stone-500 text-white px-8 py-3 rounded-lg transition-all cursor-pointer duration-200 hover:shadow-lg"
