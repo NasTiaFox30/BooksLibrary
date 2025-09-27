@@ -112,10 +112,15 @@ export default function CollectionScreen({ onBookClick }) {
   };
 
   const clearFilters = () => {
+    setTrashbinActive(true);
+    setTimeout(() => {
     setSearchTerm('');
     setSelectedGenres([]);
-    setSortBy('title');
-    setSortOrder('asc');
+    setTitleSort('asc');
+    setAuthorSort('none');
+    setCurrentGenrePage(0);
+    setTrashbinActive(false);
+    }, 500);
   };
 
   if (loading) {
