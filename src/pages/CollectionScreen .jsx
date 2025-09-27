@@ -7,6 +7,8 @@ import trashbinTexture from '/textures/trashbin-texture.png';
 import noteTextureClose from '/textures/note-texture-close.png';
 import noteTextureOpen from '/textures/note-texture-open.png';
 import paperPeaceTexture from '/textures/paper-peace.png';
+import cardTexture from '/textures/card-texture.png';
+import cardTextureBack from '/textures/card-texture-back.png';
 import {Tape} from '../components/Decor.jsx';
 
 export default function CollectionScreen({ onBookClick }) {
