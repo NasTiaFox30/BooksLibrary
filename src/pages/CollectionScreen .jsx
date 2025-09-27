@@ -7,6 +7,7 @@ import trashbinTexture from '/textures/trashbin-texture.png';
 import noteTextureClose from '/textures/note-texture-close.png';
 import noteTextureOpen from '/textures/note-texture-open.png';
 import paperPeaceTexture from '/textures/paper-peace.png';
+import {Tape} from '../components/Decor.jsx';
 
 export default function CollectionScreen({ onBookClick }) {
   const [allBooks, setAllBooks] = useState([]);
