@@ -162,7 +162,7 @@ export default function CollectionScreen({ onBookClick }) {
             
             {/* Інформація про результати */}
             <div className="mb-6">
-              <div className="courier-prime h-40 text-gray-800 text-lg p-4 text-center"
+              <div className="courier-prime h-30 text-gray-800 text-lg p-4 text-center"
                 style={{
                   backgroundImage: `url(${paperPeaceTexture})`,
                   backgroundSize: 'contain',
@@ -197,16 +197,14 @@ export default function CollectionScreen({ onBookClick }) {
 
               {/* Блокнот фільтрів */}
               {showFilters ? (
-                <div className="relative w-full max-w-4xl mx-4">
-                  <div className="relative w-110 h-90"
-                    style={{
-                      backgroundImage: `url(${noteTextureOpen})`,
-                      backgroundSize: 'cover',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'top',
-                    }}
-                  >
-                    <div className="absolute inset-0 items-center px-10 p-7 max-h-70">
+                <div className="relative max-w-4xl mx-4">
+                  <div className="relative flex justify-center w-110 h-70">
+                    <img 
+                      src={noteTextureOpen} 
+                      alt="Фільтри" 
+                      className="h-85 center cursor-pointer"
+                    />
+                    <div className="absolute inset-0 items-center px-12 py-5 max-h-70">
                       <button
                         onClick={() => setShowFilters(false)}
                         className="absolute top-4 right-4 w-4 h-4 bg-stone-500 text-white rounded-full flex items-center justify-center hover:bg-stone-600 transition-colors z-10"
