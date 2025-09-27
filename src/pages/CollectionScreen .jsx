@@ -164,7 +164,7 @@ export default function CollectionScreen({ onBookClick }) {
             />
           </div>
 
-          <div className="md:w-1/2 mb-8">
+          <div className="md:w-1/2 flex flex-col items-center mb-8">
             
             {/* Інформація про результати */}
             <div className="relative w-100 h-20 mb-6">
