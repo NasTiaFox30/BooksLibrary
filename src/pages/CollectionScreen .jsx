@@ -331,11 +331,10 @@ export default function CollectionScreen({ onBookClick }) {
             {/* Title */}
             <button
               onClick={toggleTitleSort}
-              className="bg-white border-2 border-amber-300 rounded-lg px-4 py-2 hover:shadow-lg transition-all duration-200 courier-prime-bold"
+              className="px-4 py-2 cursor-pointer transition-all duration-200 courier-prime-bold"
             >
               <div className="text-center flex flex-col items-center">
                 <div className="text-lg font-bold">Назва</div>
-                
                  <div className={`transition-transform duration-500 ${titleSort === 'desc' ? 'rotate-360' : ''}`}>
                     <div 
                       className="text-stone-600 text-xl font-semibold"
@@ -344,7 +343,7 @@ export default function CollectionScreen({ onBookClick }) {
                         textOrientation: 'upright'
                       }}
                     >
-                      {titleSort === 'asc' ? 'А ⇓ Я' : titleSort === 'desc' ? 'Я ⇓ А' : '---'}
+                      {titleSort === 'asc' ? 'А ⇓ Я' : titleSort === 'desc' ? 'Я ⇓ А' : '-'}
                     </div>
                   </div>
               </div>
@@ -353,7 +352,7 @@ export default function CollectionScreen({ onBookClick }) {
             {/* Author */}
             <button
               onClick={toggleAuthorSort}
-              className="bg-white border-2 border-amber-300 rounded-lg px-4 py-2 hover:shadow-lg transition-all duration-200 courier-prime-bold"
+              className="px-4 py-2 cursor-pointer transition-all duration-200 courier-prime-bold"
             >
               <div className="text-center flex flex-col items-center">
                 <div className="text-lg font-bold">Автор</div>
@@ -365,7 +364,7 @@ export default function CollectionScreen({ onBookClick }) {
                       textOrientation: 'upright'
                     }}
                   >
-                    {authorSort === 'asc' ? 'А ⇓ Я' : authorSort === 'desc' ? 'Я ⇓ А' : '---'}
+                    {authorSort === 'asc' ? 'А ⇓ Я' : authorSort === 'desc' ? 'Я ⇓ А' : '-'}
                   </div>
                 </div>
               </div>
