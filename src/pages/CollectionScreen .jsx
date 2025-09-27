@@ -284,7 +284,7 @@ export default function CollectionScreen({ onBookClick }) {
                             disabled={currentGenrePage === 0}
                             className={`pacifico-regular transition-colors text-sm ${
                               currentGenrePage === 0 
-                                ? 'text-stone-300 cursor-not-allowed' 
+                                ? 'text-stone-500 line-through cursor-not-allowed' 
                                 : 'text-stone-600 hover:text-stone-800'
                             }`}
                           >
@@ -298,7 +298,7 @@ export default function CollectionScreen({ onBookClick }) {
                             disabled={currentGenrePage >= totalGenrePages - 1}
                             className={`pacifico-regular transition-colors text-sm ${
                               currentGenrePage >= totalGenrePages - 1
-                                ? 'text-stone-300 cursor-not-allowed' 
+                                ? 'text-stone-500 line-through cursor-not-allowed' 
                                 : 'text-stone-600 hover:text-stone-800'
                             }`}
                           >
