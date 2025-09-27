@@ -392,14 +392,22 @@ export default function CollectionScreen({ onBookClick }) {
         ) : (
           <>
             {/* Сітка книг */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
-              {currentBooks.map(book => (
-                <BookCard
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-8">
+              {currentBooks.map((book, index) => (
+                <div 
                   key={book.id}
-                  book={book}
-                  onClick={() => onBookClick(book)}
-                  genres={genres}
-                />
+                  className="transform transition-all duration-300 hover:scale-105"
+                  style={{
+                    animationDelay: `${index * 100}ms`,
+                    animation: 'fadeInUp 0.6s ease-out forwards'
+                  }}
+                >
+                  <BookCard
+                    book={book}
+                    onClick={() => onBookClick(book)}
+                    genres={genres}
+                  />
+                </div>
               ))}
             </div>
 
