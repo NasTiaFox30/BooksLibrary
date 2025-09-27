@@ -165,7 +165,6 @@ export default function CollectionScreen({ onBookClick }) {
               <div className="courier-prime h-40 text-gray-800 text-lg p-4 text-center"
                 style={{
                   backgroundImage: `url(${paperPeaceTexture})`,
-                  backgroundSize: 'cover',
                   backgroundSize: 'contain',
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: 'top',
