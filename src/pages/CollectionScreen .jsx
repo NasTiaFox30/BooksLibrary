@@ -167,7 +167,7 @@ export default function CollectionScreen({ onBookClick }) {
           <div className="md:w-1/2 mb-8">
             
             {/* Інформація про результати */}
-            <div className="mb-6">
+            <div className="relative w-100 mb-6">
               <div className="courier-prime h-30 text-gray-800 text-lg p-4 text-center"
                 style={{
                   backgroundImage: `url(${paperPeaceTexture})`,
