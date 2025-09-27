@@ -174,16 +174,9 @@ export default function CollectionScreen({ onBookClick }) {
                 Сторінка: <span className="font-bold">{currentPage}</span> з <span className="font-bold">{totalPages}</span>
               </div>
             </div>
-
-            {/* Кнопки управління */}
-            <div className="flex gap-3 flex-wrap">
-              <button
-                onClick={() => setShowFilters(!showFilters)}
-                className="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg transition-colors"
-              >
-                🎛️ Фільтри {showFilters ? '▲' : '▼'}
-              </button>
-              
+            
+            <div className="flex gap-5 justify-center mb-6">
+              {/* Корзина */}
               <button
                 onClick={clearFilters}
                 className={`relative transition-all duration-500 ${trashbinActive ? 'transform scale-110 rotate-12' : ''}`}
