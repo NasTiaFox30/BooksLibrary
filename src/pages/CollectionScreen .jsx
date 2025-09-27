@@ -70,8 +70,8 @@ export default function CollectionScreen({ onBookClick }) {
     result = sortBooks(result, sortBy, sortOrder);
 
     setFilteredBooks(result);
-    setCurrentPage(1); // Скидаємо на першу сторінку при зміні фільтрів
-  }, [allBooks, searchTerm, selectedGenres, sortBy, sortOrder]);
+    setCurrentPage(1);
+  }, [allBooks, searchTerm, selectedGenres, titleSort, authorSort]);
 
   const sortBooks = (books) => {
     return [...books].sort((a, b) => {
