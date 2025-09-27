@@ -340,7 +340,7 @@ export default function CollectionScreen({ onBookClick }) {
                 <div 
                   className={`w-20 h-30 flex justify-center items-center transition-transform duration-500 ${titleSort === 'desc' ? 'rotate-360' : ''}`}
                   style={{
-                    backgroundImage: `url(${cardTexture})`,
+                    backgroundImage: `url(${titleSort === 'none' ? cardTextureBack : cardTexture})`,
                     backgroundSize: 'contain',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center', 
@@ -353,7 +353,7 @@ export default function CollectionScreen({ onBookClick }) {
                       textOrientation: 'upright'
                     }}
                   >
-                    {titleSort === 'asc' ? 'А ⇓ Я' : titleSort === 'desc' ? 'Я ⇓ А' : '-'}
+                    {titleSort === 'asc' ? 'А ⇓ Я' : titleSort === 'desc' ? 'Я ⇓ А' : ''}
                   </div>
                 </div>
               </div>
@@ -369,7 +369,7 @@ export default function CollectionScreen({ onBookClick }) {
                 <div
                   className={`w-20 h-30 flex justify-center items-center transition-transform duration-500 ${authorSort === 'desc' ? 'rotate-360' : ''}`}
                   style={{
-                    backgroundImage: `url(${cardTexture})`,
+                    backgroundImage: `url(${authorSort === 'none' ? cardTextureBack : cardTexture})`,
                     backgroundSize: 'contain',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center', 
@@ -382,7 +382,7 @@ export default function CollectionScreen({ onBookClick }) {
                       textOrientation: 'upright'
                     }}
                   >
-                    {authorSort === 'asc' ? 'А ⇓ Я' : authorSort === 'desc' ? 'Я ⇓ А' : '-'}
+                    {authorSort === 'asc' ? 'А ⇓ Я' : authorSort === 'desc' ? 'Я ⇓ А' : ''}
                   </div>
                 </div>
               </div>
