@@ -133,34 +133,31 @@ export default function CollectionScreen({ onBookClick }) {
     <div className="min-h-screen  py-8">
       <div className="max-w-7xl mx-auto px-4">
 
-        {/* Панель пошуку та фільтрів */}
-        <div className="rounded-lg shadow-md p-6 mb-8">
-          <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
-            {/* Пошук */}
-            <div className="flex-1 w-full lg:max-w-md">
-              <div className="relative">
-                <div className='flex items-center justify-center mb-2'>
-                  <img src={magnifyingglass} alt="Search" className="absolute h-10 left-2 select-none" />
-                  <img src={typewriter} className="absolute h-15 right-0 select-none" />
-                  <input
-                    type="text"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    placeholder="Пошук за назвою, автором або описом..."
-                    className="bg-white w-full p-3 pl-12 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-500"
-                  />
-                  
-                </div>
-               
-                 
-                {searchTerm && (
-                  <button
-                    onClick={() => setSearchTerm('')}
-                    className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
-                  >
-                    ✕
-                  </button>
-                )}
+        <div className="flex flex-col lg:flex-row ">
+          {/* Панель пошуку */}
+          <div className="flex-1 md:w-1/2 flex justify-center mb-8">
+            <TypewriterSearch
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Пошук за назвою, автором, описом..."
+            />
+          </div>
+
+          <div className="md:w-1/2 mb-8">
+            
+            {/* Інформація про результати */}
+            <div className="mb-6">
+              <div className="courier-prime h-40 text-gray-800 text-lg p-4 text-center"
+                style={{
+                  backgroundImage: `url(${paperPeaceTexture})`,
+                  backgroundSize: 'cover',
+                  backgroundSize: 'contain',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'top',
+                }}
+              >
+                Знайдено книг: <span className="font-bold">{filteredBooks.length}</span> | 
+                Сторінка: <span className="font-bold">{currentPage}</span> з <span className="font-bold">{totalPages}</span>
               </div>
             </div>
 
