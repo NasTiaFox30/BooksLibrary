@@ -338,7 +338,7 @@ export default function CollectionScreen({ onBookClick }) {
                 
                  <div className={`transition-transform duration-500 ${titleSort === 'desc' ? 'rotate-360' : ''}`}>
                     <div 
-                      className="text-amber-600"
+                      className="text-stone-600 text-xl font-semibold"
                       style={{ 
                         writingMode: 'vertical-rl',
                         textOrientation: 'upright'
@@ -359,7 +359,7 @@ export default function CollectionScreen({ onBookClick }) {
                 <div className="text-lg font-bold">Автор</div>
                 <div className={`transition-transform duration-500 ${authorSort === 'desc' ? 'rotate-360' : ''}`}>
                   <div 
-                    className="text-amber-600"
+                    className="text-stone-600 text-xl font-semibold"
                     style={{ 
                       writingMode: 'vertical-rl',
                       textOrientation: 'upright'
