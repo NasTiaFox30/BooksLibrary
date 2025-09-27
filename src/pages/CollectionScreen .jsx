@@ -123,6 +123,20 @@ export default function CollectionScreen({ onBookClick }) {
     }, 500);
   };
 
+  const toggleTitleSort = () => {
+    setTitleSort(prev => prev === 'asc' ? 'desc' : 'asc');
+    setAuthorSort('none');
+  };
+
+  const toggleAuthorSort = () => {
+    setAuthorSort(prev => {
+      if (prev === 'none') return 'asc';
+      if (prev === 'asc') return 'desc';
+      return 'none';
+    });
+    setTitleSort('none');
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
