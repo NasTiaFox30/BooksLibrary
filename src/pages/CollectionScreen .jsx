@@ -335,17 +335,25 @@ export default function CollectionScreen({ onBookClick }) {
             >
               <div className="text-center flex flex-col items-center">
                 <div className="text-lg font-bold">Назва</div>
-                 <div className={`transition-transform duration-500 ${titleSort === 'desc' ? 'rotate-360' : ''}`}>
-                    <div 
-                      className="text-stone-600 text-xl font-semibold"
-                      style={{ 
-                        writingMode: 'vertical-rl',
-                        textOrientation: 'upright'
-                      }}
-                    >
-                      {titleSort === 'asc' ? 'А ⇓ Я' : titleSort === 'desc' ? 'Я ⇓ А' : '-'}
-                    </div>
+                <div 
+                  className={`w-20 h-30 flex justify-center items-center transition-transform duration-500 ${titleSort === 'desc' ? 'rotate-360' : ''}`}
+                  style={{
+                    backgroundImage: `url(${cardTexture})`,
+                    backgroundSize: 'contain',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center', 
+                  }}
+                >
+                  <div 
+                    className="text-stone-600 text-xl font-semibold"
+                    style={{ 
+                      writingMode: 'vertical-rl',
+                      textOrientation: 'upright'
+                    }}
+                  >
+                    {titleSort === 'asc' ? 'А ⇓ Я' : titleSort === 'desc' ? 'Я ⇓ А' : ''}
                   </div>
+                </div>
               </div>
             </button>
             
