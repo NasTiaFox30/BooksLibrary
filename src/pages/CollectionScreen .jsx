@@ -208,16 +208,28 @@ export default function CollectionScreen({ onBookClick }) {
                         className="absolute top-4 right-4 w-4 h-4 bg-stone-500 text-white rounded-full flex items-center justify-center hover:bg-stone-600 transition-colors z-10"
                       >×</button>
                       
-                      <div className="relative h-5/6">
-                        <div className="flex space-x-6 h-full">
-                          {[0, 1].map(pageIndex => {
-                            const itemsPerPage = 6;
-                            const startIndex = pageIndex * itemsPerPage;
-                            const endIndex = startIndex + itemsPerPage;
+                      <div className="relative h-4/5">
+                        <div className="flex h-full">
+                          {[0, 1].map(pageOffset => {
+                            const actualPage = currentGenrePage + pageOffset;
+                            const startIndex = actualPage * itemsPerGenrePage;
+                            const endIndex = startIndex + itemsPerGenrePage;
                             const pageGenres = genres.slice(startIndex, endIndex);
                             
+                            if (startIndex >= genres.length) {
+                              return (
+                                <div key={actualPage} className="flex-1 min-w-0">
+                                  <div className="grid grid-cols-1 gap-2 h-full">
+                                    {Array.from({ length: itemsPerGenrePage }).map((_, index) => (
+                                      <div key={`empty-${index}`} className="h-6 opacity-0">●</div>
+                                    ))}
+                                  </div>
+                                </div>
+                              );
+                            }
+                            
                             return (
-                              <div key={pageIndex} className="flex-1 min-w-0">
+                              <div key={actualPage} className="flex-1 min-w-0">
                                 <div className="grid grid-cols-1 gap-2 h-full">
                                   {pageGenres.map(genre => (
                                     <label key={genre.id} className="flex items-center space-x-3 cursor-pointer group py-1">
@@ -295,7 +307,7 @@ export default function CollectionScreen({ onBookClick }) {
                 </div>
               ) : (
                 <button
-                  onClick={() => setShowFilters(true)}
+                  onClick={() => { setShowFilters(true); setCurrentGenrePage(0); }}
                   className="relative transition-transform hover:scale-105"
                 >
                   <img 
