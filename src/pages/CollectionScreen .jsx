@@ -103,6 +103,10 @@ export default function CollectionScreen({ onBookClick }) {
   const currentBooks = filteredBooks.slice(indexOfFirstBook, indexOfLastBook);
   const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
 
+  // page pagination - Genres
+  const itemsPerGenrePage = 6;
+  const totalGenrePages = Math.ceil(genres.length / itemsPerGenrePage);
+
   const handleGenreToggle = (genreId) => {
     setSelectedGenres(prev =>
       prev.includes(genreId)
@@ -241,12 +245,9 @@ export default function CollectionScreen({ onBookClick }) {
                                     </label>
                                   ))}
                                   
-                                  {/* Пусті рядки для вирівнювання */}
-                                  {pageGenres.length < itemsPerPage && 
-                                    Array.from({ length: itemsPerPage - pageGenres.length }).map((_, index) => (
-                                      <div key={`empty-${pageIndex}-${index}`} className="h-6 opacity-0">
-                                        ●
-                                      </div>
+                                  {pageGenres.length < itemsPerGenrePage && 
+                                    Array.from({ length: itemsPerGenrePage - pageGenres.length }).map((_, index) => (
+                                      <div key={`empty-${actualPage}-${index}`} className="h-6 opacity-0">●</div>
                                     ))
                                   }
                                 </div>
