@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getBooks, getGenres } from '../services/booksService';
-import BookCard from '../components/BookCard';
-import TypewriterSearch from '../components/TypewriterSearch.jsx';
+import BookCard from '../components/CollectionScreen/BookCard';
+import TypewriterSearch from '../components/CollectionScreen/TypewriterSearch';
 import quetionMark from '/textures/question-mark.png';
 import trashbinTexture from '/textures/trashbin-texture.png';
 import noteTextureClose from '/textures/note-texture-close.png';
