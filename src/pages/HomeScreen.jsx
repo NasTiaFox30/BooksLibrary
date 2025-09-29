@@ -3,7 +3,7 @@ import Bookshelf from '../components/HomeScreen/Bookshelf';
 import BookPreview from '../components/HomeScreen/BookPreview';
 import { GenerateBooks } from "../components/Tools";
 
-export default function HomeScreen({ onOpenBook, onCatClick, onLampClick, isLightOn , onOpenCollection}) {
+export default function HomeScreen({ onOpenBook, onCatClick, onLampClick, isLightOn, onOpenCollection, isMobile }) {
   const [books, setBooks] = useState([]);
   const [shelves, setShelves] = useState([]);
   const [selectedBook, setSelectedBook] = useState(null);
@@ -13,13 +13,14 @@ export default function HomeScreen({ onOpenBook, onCatClick, onLampClick, isLigh
   // Generate Books
   useEffect(() => {
     loadBooks();
-  }, []);
+  }, [isMobile]);
 
   const loadBooks = async () => {
     try {
       setLoading(true);
       // books
-      const { books: generatedBooks, genres } = await GenerateBooks(20);
+      const bookCount = isMobile ? 8 : 20;
+      const { books: generatedBooks, genres } = await GenerateBooks(bookCount);
       setBooks(generatedBooks);
 
       // shelves
@@ -59,17 +60,26 @@ export default function HomeScreen({ onOpenBook, onCatClick, onLampClick, isLigh
   return (
     <div className="min-h-screen flex flex-col relative">
       {/* CollectionScreen - link*/}
-      <div className="absolute left-50 right-50 z-10 top-20 text-center mt-4">
+      <div className={`absolute z-10 ${
+        isMobile 
+          ? 'left-0 right-0 -top-5 px-4' 
+          : 'left-50 right-50 top-0'
+      }`}>
         <button 
           onClick={onOpenCollection}
-          className=" text-black x-6 py-2 transition-colors"
+          className="w-full h-28 cursor-pointer"
+          style={{
+            backgroundImage: 'url(/textures/collection-texture.png)',
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',  
+          }}
         >
-          Переглянути повну колекцію
         </button>
       </div>
       
       {/* Bookshelf */}
-      <main className="flex-grow relative">
+      <main className={`flex-grow relative ${isMobile ? 'mt-16' : ''}`}>
         <Bookshelf 
           shelves={shelves} 
           books={books} 
@@ -77,7 +87,7 @@ export default function HomeScreen({ onOpenBook, onCatClick, onLampClick, isLigh
           onCatClick={onCatClick}
           onLampClick={onLampClick}
           isLightOn={isLightOn}
-          onOpenCollection={onOpenCollection}
+          isMobile={isMobile}
         />
       </main>
 
