@@ -1,17 +1,19 @@
 import Book from './Book';
 
-export default function Shelf({ shelf, shelfIndex, books, onBookClick }) {
+export default function Shelf({ shelf, shelfIndex, books, onBookClick, isMobile }) {
   const shelfBooks = books.filter(book => book.shelf === shelfIndex);
   if (!shelfBooks || shelfBooks.length === 0) {return null;}
 
   return (
-    <div className="mb-10 last:mb-0 relative">
+    <div className={`relative ${isMobile ? 'mb-6' : 'mb-10'} last:mb-0`}>
       {/* Shelf and Genre Label Container */}
       <div className="relative flex justify-center">
         {/* Shelf */}
-        {/* Genre Label - Fixed size and centered */}
+        {/* Genre Label */}
         <div
-          className="absolute pacifico-regular z-40 -top-6 w-35 h-18 flex items-center justify-center text-center text-black text-xl font-semibold px-2 py-1"
+          className={`absolute pacifico-regular z-40 -top-6 flex items-center justify-center text-center text-black font-semibold px-2 py-1 ${
+            isMobile ? 'w-28 h-15 text-lg' : 'w-35 h-18 text-xl'
+          }`}
           style={{
             backgroundImage: 'url(textures/wood-sign.png)',
             backgroundSize: 'cover',
@@ -25,7 +27,9 @@ export default function Shelf({ shelf, shelfIndex, books, onBookClick }) {
 
       {/* Space for books */}
       <div
-        className="h-40 relative -mt-1 pt-2 px-2"
+        className={`relative ${
+          isMobile ? 'h-32 -mt-1 pt-1 px-1' : 'h-40 -mt-1 pt-2 px-2'
+        }`}
         style={{
           backgroundImage: 'url(textures/shelf-texture.png)',
           backgroundSize: '100% 100%',
@@ -40,6 +44,7 @@ export default function Shelf({ shelf, shelfIndex, books, onBookClick }) {
             key={book.id} 
             book={book} 
             onBookClick={onBookClick}
+            isMobile={isMobile}
           />
         ))}
       </div>
