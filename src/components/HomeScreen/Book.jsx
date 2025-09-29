@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function Book({ book, onBookClick }) {
+export default function Book({ book, onBookClick, isMobile }) {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
@@ -11,19 +11,19 @@ export default function Book({ book, onBookClick }) {
   
   const sizeClasses = {
     width: {
-      7: 'w-7',
-      8: 'w-8', 
-      9: 'w-9'
+      7: isMobile ? 'w-6' : 'w-7',
+      8: isMobile ? 'w-7' : 'w-8', 
+      9: isMobile ? 'w-8' : 'w-9'
     },
     height: {
-      24: 'h-24',
-      26: 'h-26',
-      28: 'h-28'
+      24: isMobile ? 'h-20' : 'h-24',
+      26: isMobile ? 'h-22' : 'h-26',
+      28: isMobile ? 'h-24' : 'h-28'
     }
   };
 
-  const widthClass = sizeClasses.width[bookSize.width] || 'w-8';
-  const heightClass = sizeClasses.height[bookSize.height] || 'h-26';
+  const widthClass = sizeClasses.width[bookSize.width] || (isMobile ? 'w-7' : 'w-8');
+  const heightClass = sizeClasses.height[bookSize.height] || (isMobile ? 'h-22' : 'h-26');
 
   return (
     <div
@@ -33,7 +33,6 @@ export default function Book({ book, onBookClick }) {
         transform: `rotate(${book.rotation}deg) ${isHovered ? 'scale(1.1)' : 'scale(1)'}`,
         backgroundColor: `#${book.colorHue || '4A90E2'}`,
         zIndex: isHovered ? 20 : 10 + Math.abs(book.rotation),
-
         backgroundImage: `url('/textures/book-texture.png')`,
         backgroundSize: 'cover',
         backgroundBlendMode: 'multiply',
@@ -43,8 +42,10 @@ export default function Book({ book, onBookClick }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-        <span className="text-xs text-center font-bold text-white text-wrap rotate-90 transform origin-center"
-          style={{ fontSize: '10px' }}
+        <span className={`text-center font-bold text-white text-wrap rotate-90 transform origin-center ${
+          isMobile ? 'text-2xs' : 'text-xs'
+        }`}
+          style={{ fontSize: isMobile ? '8px' : '10px' }}
         >
           {book.title}
         </span>
