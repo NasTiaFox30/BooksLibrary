@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { useTypewriterSound } from '../../hooks/useTypewriter';
+import { useTypewriterSound } from '../../../hooks/useTypewriter';
 
 export default function TypewriterSearch({ value, onChange, placeholder }) {
   const [isFocused, setIsFocused] = useState(false);
