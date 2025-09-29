@@ -58,6 +58,16 @@ export default function HomeScreen({ onOpenBook, onCatClick, onLampClick, isLigh
 
   return (
     <div className="min-h-screen flex flex-col relative">
+      {/* CollectionScreen - link*/}
+      <div className="left-50 right-50 top-8 text-center mt-4">
+        <button 
+          onClick={onOpenCollection}
+          className=" text-black x-6 py-2 transition-colors"
+        >
+          Переглянути повну колекцію
+        </button>
+      </div>
+      
       {/* Bookshelf */}
       <main className="flex-grow relative">
         <Bookshelf 
