@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomeScreen from "./pages/HomeScreen";
@@ -17,6 +17,20 @@ export default function App() {
   const [titleClicked, setTitleClicked] = useState(false);
   const [isLightOn, setIsLightOn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Mobile adaptation
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleGoHome = () => {
     setCurrentScreen('home');
@@ -75,18 +89,19 @@ export default function App() {
   }
 
   const renderScreen = () => {
+    const screenProps = { isMobile };
     switch (currentScreen) {
       case 'collection':
-        return <CollectionScreen onBookClick={handleOpenBook} onGoBack={handleGoHome} />;
+        return <CollectionScreen onBookClick={handleOpenBook} onGoBack={handleGoHome} {...screenProps} />;
       case 'book':
-        return <BookScreen book={selectedBook} onGoBack={handleGoHome} />;
+        return <BookScreen book={selectedBook} onGoBack={handleGoHome} {...screenProps} />;
       case 'add-book':
         if (!currentUser) {
-          return <AuthScreen onAuthenticate={handleAuthenticate} onGoBack={handleGoHome} />;
+          return <AuthScreen onAuthenticate={handleAuthenticate} onGoBack={handleGoHome} {...screenProps} />;
         }
-        return <AddNewBookForm onSuccess={handleGoHome} currentUser={currentUser} />;
+        return <AddNewBookForm onSuccess={handleGoHome} currentUser={currentUser} {...screenProps} />;
       case 'auth':
-        return <AuthScreen onAuthenticate={handleAuthenticate} onGoBack={handleGoHome} />;
+        return <AuthScreen onAuthenticate={handleAuthenticate} onGoBack={handleGoHome} {...screenProps} />;
       default:
         return (
           <HomeScreen 
@@ -95,7 +110,9 @@ export default function App() {
             onCatClick={handleCatClick}
             onLampClick={handleLampClick}
             onOpenCollection={handleOpenCollection}
+            isMobile={isMobile}
             isLightOn={isLightOn}
+            {...screenProps}
           />
         );
     }
@@ -110,18 +127,20 @@ export default function App() {
           backgroundRepeat: 'repeat',
           backgroundPosition: 'center'
         }}>
-        <ParallaxDecorations/>
+        {!isMobile && <ParallaxDecorations/>}
+        
         <Header
           currentScreen={currentScreen}
           onNavigate={setCurrentScreen}
           onTitleClick={handleTitleClick}
           currentUser={currentUser}
           onLogout={() => setCurrentUser(null)}
+          isMobile={isMobile}
         />
         
         {renderScreen()}
         
-        <Footer />
+        <Footer isMobile={isMobile} />
       </div>
 
       <LightOverlay isLightOn={isLightOn} currentScreen={currentScreen} />
