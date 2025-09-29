@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getDownloadURL, ref } from 'firebase/storage';
-import { storage } from '../firebase.config';
+import { storage } from '../../firebase.config';
 
 export default function BookPreview({ book, isOpen, onClose, onOpenBook }) {
   const [imageUrl, setImageUrl] = useState(null);
