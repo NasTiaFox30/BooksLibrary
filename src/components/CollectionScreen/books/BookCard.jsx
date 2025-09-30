@@ -2,11 +2,11 @@ import { useState } from 'react';
 import bookIcon from '/textures/decor/decor10.png';
 import calendarIcon from '/textures/decor/decor11.png';
 
-export default function BookCard({ book, onClick, genres, isMobile }) {
+export default function BookCard({ book, onBookClick, genres, isMobile }) {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
-    onClick(book);
+    onBookClick(book);
   };
 
   // Отримуємо розміри книги
