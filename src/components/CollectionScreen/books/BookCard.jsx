@@ -77,7 +77,7 @@ export default function BookCard({ book, onBookClick, genres, isMobile }) {
           alt={book.title}
           className="relative group-hover:scale-105 transition-transform duration-300"
           style={{
-            width: `${cardWidth*1.2}px`,
+            width: `auto`,
             height: `${cardHeight}px`,
           }}
           />
