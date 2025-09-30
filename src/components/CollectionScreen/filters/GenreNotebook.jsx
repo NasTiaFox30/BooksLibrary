@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import noteTextureOpen from '/textures/note-texture-open.png';
 
 export default function GenreNotebook({
