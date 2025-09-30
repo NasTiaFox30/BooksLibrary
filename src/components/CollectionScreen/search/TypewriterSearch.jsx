@@ -50,7 +50,7 @@ export default function TypewriterSearch({ value, onChange, placeholder, isMobil
   const getPaperPosition = () => isMobile ? 'bottom-43 left-15 right-15' : 'bottom-63 left-25 right-25';
   const getTypewriterSize = () => isMobile ? 'w-80 h-auto' : 'w-120 h-auto';
   const getLeverPosition = () => isMobile ? 'top-10' : 'top-15';
-  const getFontSize = () => isMobile ? 'text-base' : 'text-lg';
+  const getFontSize = () => isMobile ? 'text-sm' : 'text-lg';
   const getPaperPadding = () => isMobile ? 'p-3' : 'p-4';
   const getMinHeight = () => isMobile ? 'min-h-[40px]' : 'min-h-[50px]';
 
