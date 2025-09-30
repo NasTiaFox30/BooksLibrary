@@ -35,7 +35,7 @@ function SortButton({ label, sortState, onToggle, isMobile }) {
   return (
     <button
       onClick={onToggle}
-      className="px-4 py-2 cursor-pointer transition-all duration-200 courier-prime-bold"
+      className="px-4 py-2 cursor-pointer hover:scale-95 transition-all duration-200 courier-prime-bold"
     >
       <div className="text-center flex flex-col items-center">
         <div className="text-lg font-bold">{label}</div>
