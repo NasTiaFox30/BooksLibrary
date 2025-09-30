@@ -37,6 +37,7 @@ export default function BookCard({ book, onBookClick, genres, isMobile }) {
       {/* Контейнер книги з тінню */}
       <div className="relative flex justify-center transition-transform duration-300 group-hover:scale-105">
         {/* Сама книга */}
+        {!isMobile && !isHovered && book.imagePath && (
         <div
           className="relative rounded-xs border overflow-hidden shadow-lg"
           style={{
@@ -67,16 +68,20 @@ export default function BookCard({ book, onBookClick, genres, isMobile }) {
             className="absolute bottom-0 left-0 right-0 bg-black opacity-20"
             style={{ height: `${cardHeight * 0.15}px` }}
           ></div>
-
-          {/* Ефект при наведенні */}
-          {!isMobile && isHovered && book.imagePath && (
-            <img
-              src={book.imagePath}
-              alt={book.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-          )}
-        </div>
+          </div>
+        )}
+        {/* Ефект при наведенні */}
+        {!isMobile && isHovered && book.imagePath && (
+          <img
+          src={book.imagePath}
+          alt={book.title}
+          className="relative group-hover:scale-105 transition-transform duration-300"
+          style={{
+            width: `${cardWidth*1.2}px`,
+            height: `${cardHeight}px`,
+          }}
+          />
+        )}
 
         {/* Тінь під книгою */}
         <div 
