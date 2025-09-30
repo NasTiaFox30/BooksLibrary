@@ -7,12 +7,13 @@ export default function GenreNotebook({
   onGenreToggle,
   currentGenrePage,
   totalGenrePages,
-  onGenrePageChange
+  onGenrePageChange,
+  isMobile
 }) {
   const itemsPerGenrePage = 6;
 
   return (
-    <div className="relative max-w-4xl mx-4">
+    <div className={`${isMobile ? 'fixed inset-0 bg-stone-900/50 z-50 flex items-center justify-center p-4' : 'relative max-w-4xl mx-4'}`}>
       <div className="relative flex justify-center w-110 h-70">
         <img 
           src={noteTextureOpen} 
@@ -56,6 +57,7 @@ export default function GenreNotebook({
                           genre={genre}
                           isSelected={selectedGenres.includes(genre.id)}
                           onToggle={() => onGenreToggle(genre.id)}
+                          isMobile={isMobile}
                         />
                       ))}
                       
@@ -76,6 +78,7 @@ export default function GenreNotebook({
             currentPage={currentGenrePage}
             totalPages={totalGenrePages}
             onPageChange={onGenrePageChange}
+            isMobile={isMobile}
           />
         </div>
       </div>
@@ -83,43 +86,53 @@ export default function GenreNotebook({
   );
 }
 
-function GenreCheckbox({ genre, isSelected, onToggle }) {
+function GenreCheckbox({ genre, isSelected, onToggle, isMobile }) {
   return (
-    <label className="flex items-center space-x-3 cursor-pointer group py-1">
+    <label className={`flex items-center space-x-2 cursor-pointer group py-1 ${
+      isMobile ? 'space-x-2' : 'space-x-3'
+    }`}>
       <input
         type="checkbox"
         checked={isSelected}
         onChange={onToggle}
         className="hidden"
       />
-      <div className={`relative w-5 h-5 border-2 rounded transition-all duration-200 group-hover:scale-110 ${
+      <div className={`relative border-2 rounded transition-all duration-200 group-hover:scale-110 ${
+        isMobile ? 'w-4 h-4' : 'w-5 h-5'
+      } ${
         isSelected
           ? 'bg-stone-600 border-stone-700 shadow-lg'
           : 'bg-white border-stone-300 group-hover:border-stone-500'
       }`}>
         {isSelected && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <svg className={`text-white ${
+              isMobile ? 'w-2 h-2' : 'w-3 h-3'
+            }`} fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
             </svg>
           </div>
         )}
       </div>
-      <span className="pacifico-regular text-stone-800 group-hover:text-stone-900 transition-colors text-sm">
+      <span className={`pacifico-regular text-stone-800 group-hover:text-stone-900 transition-colors ${
+        isMobile ? 'text-xs' : 'text-sm'
+      }`}>
         {genre.name}
       </span>
     </label>
   );
 }
 
-function GenrePagination({ currentPage, totalPages, onPageChange }) {
+function GenrePagination({ currentPage, totalPages, onPageChange, isMobile }) {
   return (
     <div className="absolute bottom-10 right-0 left-0 flex justify-center items-center px-6">
       <div className="flex items-center justify-center space-x-4">
         <button 
           onClick={() => onPageChange(Math.max(currentPage - 1, 0))}
           disabled={currentPage === 0}
-          className={`pacifico-regular transition-colors text-sm ${
+          className={`pacifico-regular transition-colors ${
+            isMobile ? 'text-xs' : 'text-sm'
+          } ${
             currentPage === 0 
               ? 'text-stone-500 line-through cursor-not-allowed' 
               : 'text-stone-600 hover:text-stone-800'
@@ -127,13 +140,17 @@ function GenrePagination({ currentPage, totalPages, onPageChange }) {
         >
           ← Попередня
         </button>
-        <span className="pacifico-regular bg-stone-400 rounded-md p-1 text-stone-700 text-sm">
+        <span className={`pacifico-regular bg-stone-400 rounded-md p-1 text-stone-700 ${
+          isMobile ? 'text-xs' : 'text-sm'
+        }`}>
           {currentPage + 1}/{totalPages}
         </span>
         <button 
           onClick={() => onPageChange(Math.min(currentPage + 1, totalPages - 1))}
           disabled={currentPage >= totalPages - 1}
-          className={`pacifico-regular transition-colors text-sm ${
+          className={`pacifico-regular transition-colors ${
+            isMobile ? 'text-xs' : 'text-sm'
+          } ${
             currentPage >= totalPages - 1
               ? 'text-stone-500 line-through cursor-not-allowed' 
               : 'text-stone-600 hover:text-stone-800'

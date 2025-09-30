@@ -7,7 +7,7 @@ import BookGridSection from '../components/CollectionScreen/books/BookGridSectio
 import LoadingState from '../components/LoadingState';
 import ResultEmpty from '../components/CollectionScreen/ResultEmpty';
 
-export default function CollectionScreen({ onBookClick }) {
+export default function CollectionScreen({ onBookClick, onGoBack, isMobile }) {
   const [allBooks, setAllBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [genres, setGenres] = useState([]);
@@ -18,9 +18,10 @@ export default function CollectionScreen({ onBookClick }) {
   const [authorSort, setAuthorSort] = useState('none');
   const [currentPage, setCurrentPage] = useState(1);
   const [currentGenrePage, setCurrentGenrePage] = useState(0);
-  const [booksPerPage] = useState(12);
+  const [booksPerPage] = useState(isMobile ? 8 : 12);
   const [showFilters, setShowFilters] = useState(false);
   const [trashbinActive, setTrashbinActive] = useState(false);
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   // Завантаження даних
   useEffect(() => {
@@ -118,12 +119,13 @@ export default function CollectionScreen({ onBookClick }) {
   const clearFilters = () => {
     setTrashbinActive(true);
     setTimeout(() => {
-    setSearchTerm('');
-    setSelectedGenres([]);
-    setTitleSort('asc');
-    setAuthorSort('none');
-    setCurrentGenrePage(0);
-    setTrashbinActive(false);
+      setSearchTerm('');
+      setSelectedGenres([]);
+      setTitleSort('asc');
+      setAuthorSort('none');
+      setCurrentGenrePage(0);
+      setTrashbinActive(false);
+      if (isMobile) setShowMobileFilters(false);
     }, 500);
   };
 
@@ -137,45 +139,105 @@ export default function CollectionScreen({ onBookClick }) {
     setTitleSort('none');
   };
 
+  const toggleMobileFilters = () => {
+    setShowMobileFilters(!showMobileFilters);
+  };
+
   if (loading) {
     return <LoadingState />;
   }
 
   return (
-    <div className="min-h-screen  py-8">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center border-b-4 border-stone-400 mb-10">
+    <div className="min-h-screen py-4 md:py-8">
+      <div className="max-w-7xl mx-auto px-3 md:px-4">
+        <div className={`flex flex-col lg:flex-row items-center border-b-2 md:border-b-4 border-stone-400 mb-6 md:mb-10 ${
+          isMobile ? 'pb-4' : ''
+        }`}>
           <SearchSection
             searchTerm={searchTerm}
             onSearchChange={(e) => setSearchTerm(e.target.value)}
+            isMobile={isMobile}
           />
 
-          <FiltersSection
-            filteredBooks={filteredBooks}
-            currentPage={currentPage}
-            totalPages={totalPages}
-            trashbinActive={trashbinActive}
-            onClearFilters={clearFilters}
-            showFilters={showFilters}
-            onShowFiltersChange={setShowFilters}
-            selectedGenres={selectedGenres}
-            genres={genres}
-            currentGenrePage={currentGenrePage}
-            totalGenrePages={totalGenrePages}
-            onGenrePageChange={setCurrentGenrePage}
-            onGenreToggle={handleGenreToggle}
-          />
-
+          {/* Desktop */}
+          {!isMobile && (
+            <FiltersSection
+              filteredBooks={filteredBooks}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              trashbinActive={trashbinActive}
+              onClearFilters={clearFilters}
+              showFilters={showFilters}
+              onShowFiltersChange={setShowFilters}
+              selectedGenres={selectedGenres}
+              genres={genres}
+              currentGenrePage={currentGenrePage}
+              totalGenrePages={totalGenrePages}
+              onGenrePageChange={setCurrentGenrePage}
+              onGenreToggle={handleGenreToggle}
+              isMobile={isMobile}
+            />
+          )}  
+          {!isMobile && (
           <SortCards
             titleSort={titleSort}
             authorSort={authorSort}
             onTitleSortToggle={toggleTitleSort}
             onAuthorSortToggle={toggleAuthorSort}
-          />
+            isMobile={isMobile}
+            />
+          )}
+        
+
+          {/* Mobile adaptation */}
+          {/* Toggle button */}
+          {isMobile && (
+            <div className="flex items-center justify-between mb-4 ">
+              <button
+                onClick={toggleMobileFilters}
+                className="flex px-4 py-2 bg-stone-600 text-white rounded-lg text-sm gap-2"
+              >
+                {showMobileFilters ? 'Фільтри' : 'Сортування'}
+                <img src={showMobileFilters ? "textures/filters2.png" : "textures/filters1.png"} alt="" className='w-5' />
+                
+              </button>
+            </div>
+          )}
+          {isMobile && !showMobileFilters && (
+            <SortCards
+              titleSort={titleSort}
+              authorSort={authorSort}
+              onTitleSortToggle={toggleTitleSort}
+              onAuthorSortToggle={toggleAuthorSort}
+              isMobile={isMobile}
+            />
+          )}
+          {isMobile && showMobileFilters && (
+            <div className="mb-6 p-4 ">
+              <FiltersSection
+                filteredBooks={filteredBooks}
+                currentPage={currentPage}
+                totalPages={totalPages}
+                trashbinActive={trashbinActive}
+                onClearFilters={clearFilters}
+                showFilters={showFilters}
+                onShowFiltersChange={setShowFilters}
+                selectedGenres={selectedGenres}
+                genres={genres}
+                currentGenrePage={currentGenrePage}
+                totalGenrePages={totalGenrePages}
+                onGenrePageChange={setCurrentGenrePage}
+                onGenreToggle={handleGenreToggle}
+                isMobile={isMobile}
+              />
+            </div>
+          )}
+          
+          
         </div>
 
         {filteredBooks.length === 0 ? (
-          <ResultEmpty onClearFilters={clearFilters} />
+          <ResultEmpty onClearFilters={clearFilters} isMobile={isMobile} />
         ) : (
           <BookGridSection
             books={currentBooks}
@@ -184,6 +246,7 @@ export default function CollectionScreen({ onBookClick }) {
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={setCurrentPage}
+            isMobile={isMobile}
           />
         )}
       </div>
