@@ -5,25 +5,28 @@ export default function SortButtons({
   titleSort,
   authorSort,
   onTitleSortToggle,
-  onAuthorSortToggle
+  onAuthorSortToggle,
+  isMobile
 }) {
   return (
-    <div className="flex flex-col gap-4 justify-center mb-8">
+    <div className={`${isMobile ? "flex gap-3 justify-center mb-4 w-full" : "flex flex-col gap-4 justify-center mb-8"} `} >
       <SortButton
         label="Назва"
         sortState={titleSort}
         onToggle={onTitleSortToggle}
+        isMobile={isMobile}
       />
       <SortButton
         label="Автор"
         sortState={authorSort}
         onToggle={onAuthorSortToggle}
+        isMobile={isMobile}
       />
     </div>
   );
 }
 
-function SortButton({ label, sortState, onToggle }) {
+function SortButton({ label, sortState, onToggle, isMobile }) {
   const getDisplayText = () => {
     if (sortState === 'none') return '';
     return sortState === 'asc' ? 'А ⇓ Я' : 'Я ⇓ А';
@@ -37,7 +40,7 @@ function SortButton({ label, sortState, onToggle }) {
       <div className="text-center flex flex-col items-center">
         <div className="text-lg font-bold">{label}</div>
         <div 
-          className={`w-20 h-30 flex justify-center items-center transition-transform duration-500 ${
+          className={`${isMobile ? "w-15 h-25" : "w-20 h-30"} flex justify-center items-center transition-transform duration-500 ${
             sortState === 'desc' ? 'rotate-360' : ''
           }`}
           style={{
@@ -48,10 +51,11 @@ function SortButton({ label, sortState, onToggle }) {
           }}
         >
           <div 
-            className="text-stone-600 text-xl font-semibold"
+            className={`text-stone-600 ${isMobile ? "text-md" : "text-xl"} font-semibold`}
             style={{ 
               writingMode: 'vertical-rl',
-              textOrientation: 'upright'
+              textOrientation: 'upright',
+              letterSpacing: isMobile ? "-6px" : "-4px",
             }}
           >
             {getDisplayText()}
