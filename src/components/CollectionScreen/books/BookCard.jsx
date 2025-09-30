@@ -37,7 +37,7 @@ export default function BookCard({ book, onBookClick, genres, isMobile }) {
       {/* Контейнер книги з тінню */}
       <div className="relative flex justify-center transition-transform duration-300 group-hover:scale-105">
         {/* Сама книга */}
-        {!isMobile && !isHovered && book.imagePath && (
+        { !isHovered && book.imagePath && (
         <div
           className="relative rounded-xs border overflow-hidden shadow-lg"
           style={{
