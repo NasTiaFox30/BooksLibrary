@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Bookshelf from '../components/HomeScreen/Bookshelf';
-import BookPreview from '../components/HomeScreen/BookPreview';
+import BookPreview from '../components/BookPreview';
 import { GenerateBooks } from "../components/Tools";
 
 export default function HomeScreen({ onOpenBook, onCatClick, onLampClick, isLightOn, onOpenCollection, isMobile }) {
