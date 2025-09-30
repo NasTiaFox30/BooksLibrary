@@ -119,6 +119,12 @@ export default function TypewriterSearch({ value, onChange, placeholder }) {
           </div>
         </div>
       </div>
+
+      <div className="text-center mt-2">
+        <p className="text-xs text-stone-500 courier-prime">
+          надрукуйте текст для пошуку
+        </p>
+      </div>
     </div>
   );
 }
