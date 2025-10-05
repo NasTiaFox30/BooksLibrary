@@ -1,4 +1,4 @@
-# BooksLibrary
+# Arcana Librorum
 React + Vite + Tailwindcss
 
 ## Hours
