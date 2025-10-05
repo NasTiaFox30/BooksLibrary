@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "arcana-librorum",
     "public": "dist",
     "ignore": [
       "firebase.json",
