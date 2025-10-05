@@ -91,14 +91,6 @@ export default function AuthScreen({ onAuthenticate }) {
               )}
             </button>
           </form>
-
-          {/* TEST */}
-          <div className="mt-6 p-4 bg-amber-50 rounded-lg border border-amber-200">
-            <h3 className="font-semibold text-amber-800 mb-2">Тестові облікові дані:</h3>
-            <div className="text-sm text-amber-700 space-y-1">
-              <div>👑 Адмін: <span className="font-mono">creator / ABadmin2005</span></div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
